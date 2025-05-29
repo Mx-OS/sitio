@@ -41,5 +41,5 @@ gratuita y adaptada a nuestro entorno.
 =================
 MxOS es un esfuerzo colectivo impulsado por la Fundación MxOS (en formación). Revisa nuestra documentación técnica y participa.
 
-`Colabora <https://docs.mx-os.mx/contacto>`_
+`Colabora <https://mx-os.mx/contacto>`_
 
