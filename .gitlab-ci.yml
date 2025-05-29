@@ -13,6 +13,7 @@ test:  # builds and tests your site
 
 create-pages:
   script:
+    - apk add -U --no-cache hugo py3-docutils
     - hugo
   pages: true
   artifacts:
