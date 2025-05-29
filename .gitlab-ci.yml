@@ -6,6 +6,7 @@ variables:
 
 test:  # builds and tests your site
   script:
+    - apk add -U --no-cache py3-docutils
     - hugo
   rules:
     - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
