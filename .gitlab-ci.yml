@@ -1,0 +1,22 @@
+default:
+  image: "${CI_TEMPLATE_REGISTRY_HOST}/pages/hugo:latest"
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+test:  # builds and tests your site
+  script:
+    - hugo
+  rules:
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
+
+create-pages:
+  script:
+    - hugo
+  pages: true
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  environment: production

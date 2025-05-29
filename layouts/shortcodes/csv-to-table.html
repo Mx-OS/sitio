@@ -1,0 +1,30 @@
+{{ with $file := .Get 0 }}
+  {{ with resources.Get $file }}
+    {{ with . | transform.Unmarshal }}
+      <div class="table">
+        <table class="cuentas">
+          <thead>
+            <tr>
+              {{ range index . 0 }}
+                <th>{{ . }}</th>
+              {{ end }}
+            </tr>
+          </thead>
+          <tbody>
+            {{ range after 1 . }}
+              <tr>
+                {{ range . }}
+                  <td>{{ . }}</td>
+                {{ end }}
+              </tr>
+            {{ end }}
+          </tbody>
+        </table>
+      </div>
+    {{ end }}
+  {{ else }}
+    {{ errorf "El %q shortcode no pudo encontrar %s. Ver %s" $.Name $file $.Position }}
+  {{ end }}
+{{ else }}
+  {{ errorf "El shortcode %q requiere un argumento posicional, el path a el archivo CSV debe ser relativo al directorio 'assets'. Ver %s" .Name .Position }}
+{{ end }}

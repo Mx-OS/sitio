@@ -1,0 +1,32 @@
+.container {
+	max-width: 960px;
+}
+
+.main-logo {
+	display: block;
+	margin: auto;
+	width: 20%;
+}
+
+div.table {
+	overflow-x: auto;
+}
+
+table.cuentas {
+	min-width: 500px;
+	width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+	.copyright {
+		font-size: 2vw;
+	}
+
+	.menu__dropdown a {
+		font-size: 66%;
+	}
+
+	table.cuentas {
+		font-size: 2vw;
+	}
+}

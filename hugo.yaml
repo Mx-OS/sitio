@@ -1,0 +1,86 @@
+---
+baseURL: "https://mx-os.mx/"
+title: Fundación MxOS
+copyright: "Fundación MxOS (en formación) :: GPLv3 o >"
+languageCode: "es-mx"
+theme: terminal
+
+pagination:
+  pagerSize: 5
+
+markup:
+  highlight:
+    style: monokai
+    noClasses: false
+
+params:
+  contentTypeName: posts
+  showMenuItems: 4
+  showLanguageSelector: false
+  fullWidthTheme: false
+  centerTheme: true
+  autoCover: true
+  showLastUpdated: false
+  updatedDatePrefix: Actualizado
+
+languages:
+  es:
+    languageName: Español
+    languageCode: es-mx
+    title: Fundación MxOS
+    params:
+      subtitle: Sitio oficial de la Fundación MxOS.
+      owner: Fundación MxOS
+      keywords: "fundación, mxos, mx-os, software libre, gnu, linux"
+      copyright: CC-BY-SA 2025
+      menuMore: más
+      postsFor: Artículos para
+      readMore: Leer más
+      readOtherPosts: Leer otros artículos
+      newerPosts: Artículos nuevos
+      olderPosts: Artículos viejos
+      missingContentMessage: Página no encontrada...
+      missingBackButtonLabel: Regresar al inicio
+      minuteReadingTime: min de lectura
+      words: palabras
+      logo:
+        logoText: Fundación MxOS
+        logoHomeLink: /
+    menu:
+      main:
+        - identifier: acerca
+          name: Acerca
+          url: https://docs.mx-os.mx/acerca/
+          weight: -10
+
+        - identifier: blog
+          name: Blog
+          url: /posts
+          weight: -10
+
+        - identifier: documentación
+          name: Docs
+          url: https://docs.mx-os.mx/
+          weight: -10
+
+        - identifier: cuentas
+          name: Cuentas
+          url: /cuentas
+          weight: -5
+
+        - identifier: contacto
+          name: Contacto
+          url: /contacto
+
+security:
+  exec:
+    allow:
+      - ^(dart-)?sass(-embedded)?$
+      - ^go$
+      - ^git$
+      - ^npx$
+      - ^postcss$
+      - ^tailwindcss$
+      - ^pandoc
+      - ^rst2html
+...

@@ -1,0 +1,8 @@
+root = true
+
+[*.rst]
+ident_size = 3
+ident_style = space
+
+[Makefile]
+indent_style = tab
