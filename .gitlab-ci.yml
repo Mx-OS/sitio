@@ -1,12 +1,12 @@
 default:
-  image: "${CI_TEMPLATE_REGISTRY_HOST}/pages/hugo:latest"
+  image: docker.io/library/alpine:latest
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 test:  # builds and tests your site
   script:
-    - apk add -U --no-cache py3-docutils
+    - apk add -U --no-cache hugo py3-docutils
     - hugo
   rules:
     - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
