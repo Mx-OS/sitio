@@ -1,5 +1,5 @@
 .container {
-	max-width: 960px;
+	max-width: 1000px !important;
 }
 
 .main-logo {
@@ -13,7 +13,7 @@ div.table {
 }
 
 table.cuentas {
-	min-width: 500px;
+	min-width: 900px;
 	width: 100%;
 }
 
@@ -24,9 +24,5 @@ table.cuentas {
 
 	.menu__dropdown a {
 		font-size: 66%;
-	}
-
-	table.cuentas {
-		font-size: 2vw;
 	}
 }
