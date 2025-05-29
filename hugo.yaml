@@ -4,6 +4,7 @@ title: Fundación MxOS
 copyright: "Fundación MxOS (en formación) :: GPLv3 o >"
 languageCode: "es-mx"
 theme: terminal
+defaultContentLanguage: es
 
 pagination:
   pagerSize: 5
