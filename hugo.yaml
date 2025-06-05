@@ -16,7 +16,7 @@ markup:
 
 params:
   contentTypeName: posts
-  showMenuItems: 4
+  showMenuItems: 7
   showLanguageSelector: false
   fullWidthTheme: false
   centerTheme: true
@@ -52,12 +52,17 @@ languages:
         - identifier: acerca
           name: Acerca
           url: https://docs.mx-os.mx/acerca/
-          weight: -10
+          weight: -15
 
         - identifier: blog
           name: Blog
           url: /posts
-          weight: -10
+          weight: -12
+
+        - identifier: noticias
+          name: Noticias
+          url: /noticias
+          weight: -12
 
         - identifier: documentación
           name: Docs
