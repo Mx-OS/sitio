@@ -69,6 +69,11 @@ languages:
           url: /cuentas
           weight: -5
 
+        - identifier: gracias
+          name: Gracias
+          url: /gracias
+          weight: -5
+
         - identifier: contacto
           name: Contacto
           url: /contacto
