@@ -15,16 +15,16 @@ Para desarrollar el sitio, solo hay que instalar `hugo` y clonar el sitio:
 
 .. code-block:: bash
 
-    # instalar hugo
-    dnf -y install hugo
+   # instalar hugo
+   dnf -y install hugo
 
-    # clonarlo
-    git clone https://gitlab.com/MxOS/sitio.git
+   # clonarlo
+   git clone https://gitlab.com/MxOS/sitio.git
 
 Para más información sobre como hackearle a un sitio hecho en `hugo`, consulta su documentación en: https://gohugo.io/documentation/
 
 .. note::
-    Procuramos usar la versión más actual siempre.
+   Procuramos usar la versión más actual siempre.
 
 Creación de contenido
 ---------------------
