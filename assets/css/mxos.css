@@ -26,3 +26,56 @@ table.cuentas {
 		font-size: 66%;
 	}
 }
+
+/* General */
+dt {
+	font-weight: bold;
+}
+
+dd {
+	padding-left: 2rem;
+	margin-bottom: 0.5rem;
+}
+
+/* Admonitions */
+.admonition {
+	padding: 1em 1.5em;
+}
+
+.admonition p {
+	margin: 0 0 0.5em 0;
+}
+
+.admonition p.admonition-title {
+	font-weight: bold;
+}
+
+.admonition p tt {
+	background: #333;
+	color: #fff;
+	padding: 0 0.5em;
+}
+
+.note {
+	background: #fc0;
+}
+
+.warning {
+	background: #f00;
+}
+
+.warning p {
+	color: #fff;
+}
+
+.danger {
+	background: #000;
+}
+
+.danger p.admonition-title {
+	color: #f00;
+}
+
+.danger p {
+	color: #fff;
+}
