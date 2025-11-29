@@ -1,5 +1,5 @@
 .container {
-	max-width: 1000px !important;
+	max-width: 1280px !important;
 }
 
 .main-logo {
@@ -28,13 +28,18 @@ table.cuentas {
 }
 
 /* General */
+p {
+	margin: 0 0 1em 0;
+	padding: 0;
+}
+
 dt {
 	font-weight: bold;
 }
 
 dd {
-	padding-left: 2rem;
-	margin-bottom: 0.5rem;
+	padding-left: 2em;
+	margin-bottom: 0.5em;
 }
 
 /* Admonitions */
@@ -78,4 +83,18 @@ dd {
 
 .danger p {
 	color: #fff;
+}
+
+/* Figures */
+.figure img {
+	margin: auto;
+	padding: 0;
+}
+
+.figure p.caption {
+	margin: auto;
+	max-width: 98%;
+	font-style: italic;
+	font-size: 90%;
+	text-align: center;
 }
