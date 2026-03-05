@@ -51,7 +51,7 @@ languages:
       main:
         - identifier: acerca
           name: Acerca
-          url: https://docs.mx-os.mx/acerca/
+          url: https://docs.mx-os.mx/es-MX/organizacion/acerca/
           weight: -15
 
         - identifier: blog
