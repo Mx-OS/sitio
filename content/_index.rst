@@ -3,6 +3,10 @@ title: "Inicio"
 date: 2025-05-26T12:06:45-06:00
 ---
 
+=================================
+Soberanía Tecnológica para México
+=================================
+
 .. image:: /images/logo.svg
    :alt: Logotipo no definitivo de la Fundación MxOS.
    :class: main-logo
@@ -10,8 +14,8 @@ date: 2025-05-26T12:06:45-06:00
 Construyendo una distribución Linux segura, abierta y soberana para México.
 Inspirado en el proyecto de `EU OS <https://eu-os.eu/>`_.
 
-* `Explora y Participa <https://docs.mx-os.mx/acerca/>`_
-* `¡Apóyanos en GoFundMe! <https://gofund.me/b4626842>`_
+* `Explora y Participa <https://docs.mx-os.mx/es-MX/organizacion/acerca/>`_
+* `¡Apóyanos en Liberapay! <https://liberapay.com/MxOS>`_
 
 Visión y Enfoque
 ================
@@ -41,5 +45,5 @@ gratuita y adaptada a nuestro entorno.
 =================
 MxOS es un esfuerzo colectivo impulsado por la Fundación MxOS (en formación). Revisa nuestra documentación técnica y participa.
 
-`Colabora <https://mx-os.mx/contacto>`_
+`Colabora </contacto>`_
 

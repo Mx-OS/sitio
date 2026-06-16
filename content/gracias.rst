@@ -1,5 +1,6 @@
 ---
 title: "Gracias"
+description: "Agradecimiento especial a los patrocinadores fundadores y colaboradores de la Fundación MxOS."
 ---
 
 La fundación nunca hubiese sido posible si no fuese por nuestros patrocinadores fundadores. Les estamos muy agradecidos porque, con
@@ -10,7 +11,7 @@ Mención especial
 Estos individuos y empresas son mencionados especialmente por ir más allá para ayudarnos a lograr que la fundación despegue. En
 orden alfabético:
 
-* **HobOps** :: https://hobops.io/
+* **HobOps** https://hobops.io/
 * **Juan Carrillo**
 * **Juan Pablo Marin Rosas**
 

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ $.Site.Language }}">
+<head>
+  {{ block "title" . }}
+    <title>{{ if .IsHome }}{{ $.Site.Title }} | Soberanía Tecnológica para México{{ else }}{{ .Title }} | {{ $.Site.Title }}{{ end }}</title>
+  {{ end }}
+  {{ partial "head.html" . }}
+</head>
+<body>
+
+  {{ partial "header.html" . }}
+
+  <main class="container">
+    {{ block "main" . }}
+    {{ end }}
+  </main>
+
+  {{ block "footer" . }}
+    {{ partial "footer.html" . }}
+  {{ end }}
+
+</body>
+</html>

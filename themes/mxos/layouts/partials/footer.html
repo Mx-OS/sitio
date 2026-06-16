@@ -1,0 +1,13 @@
+<footer class="footer-mxos">
+  <div class="container">
+    {{ if $.Site.Copyright }}
+      <span>{{ $.Site.Copyright | safeHTML }}</span>
+    {{ else }}
+      <span>© {{ now.Year }} Fundación MxOS</span>
+    {{ end }}
+    <span> | <a href="https://gohugo.io" target="_blank">Hugo</a> | <a href="https://picocss.com" target="_blank">Pico CSS</a></span>
+  </div>
+</footer>
+
+<!-- Extended footer section-->
+{{ partial "extended_footer.html" . }}

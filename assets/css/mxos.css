@@ -1,100 +1,105 @@
-.container {
-	max-width: 1280px !important;
-}
+/* Local MxOS Site Styles & Specific Overrides */
 
+/* Center the homepage logo and apply shadow */
 .main-logo {
-	display: block;
-	margin: auto;
-	width: 20%;
+  display: block;
+  margin: 2rem auto;
+  max-width: 200px;
+  width: 100%;
+  filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.25));
+  transition: all 0.3s ease;
 }
 
-div.table {
-	overflow-x: auto;
+.main-logo:hover {
+  transform: scale(1.05) rotate(1deg);
+  filter: drop-shadow(0 0 25px rgba(16, 185, 129, 0.4));
 }
 
-table.cuentas {
-	min-width: 900px;
-	width: 100%;
-}
-
-@media screen and (max-width: 600px) {
-	.copyright {
-		font-size: 2vw;
-	}
-
-	.menu__dropdown a {
-		font-size: 66%;
-	}
-}
-
-/* General */
-p {
-	margin: 0 0 1em 0;
-	padding: 0;
+/* Definition lists styling (used in Sphinx/RST output) */
+dl {
+  margin-bottom: 1.5rem;
 }
 
 dt {
-	font-weight: bold;
+  font-weight: 700;
+  color: var(--pico-primary);
+  margin-top: 1rem;
 }
 
 dd {
-	padding-left: 2em;
-	margin-bottom: 0.5em;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--pico-color);
 }
 
-/* Admonitions */
-.admonition {
-	padding: 1em 1.5em;
+/* Sphinx Figures styling */
+.figure {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1rem;
+  border: 1px solid var(--pico-border-color);
+  border-radius: var(--pico-border-radius);
+  background: var(--pico-card-background-color);
 }
 
-.admonition p {
-	margin: 0 0 0.5em 0;
-}
-
-.admonition p.admonition-title {
-	font-weight: bold;
-}
-
-.admonition p tt {
-	background: #333;
-	color: #fff;
-	padding: 0 0.5em;
-}
-
-.note {
-	background: #fc0;
-}
-
-.warning {
-	background: #f00;
-}
-
-.warning p {
-	color: #fff;
-}
-
-.danger {
-	background: #000;
-}
-
-.danger p.admonition-title {
-	color: #f00;
-}
-
-.danger p {
-	color: #fff;
-}
-
-/* Figures */
 .figure img {
-	margin: auto;
-	padding: 0;
+  border-radius: calc(var(--pico-border-radius) - 4px);
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .figure p.caption {
-	margin: auto;
-	max-width: 98%;
-	font-style: italic;
-	font-size: 90%;
-	text-align: center;
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--pico-muted-color);
+  font-style: italic;
+}
+
+/* Custom styles for the CSV-to-table output */
+.table {
+  overflow-x: auto;
+  border: 1px solid var(--pico-border-color);
+  border-radius: var(--pico-border-radius);
+  margin: 1.5rem 0;
+  background: var(--pico-card-background-color);
+}
+
+table.cuentas {
+  margin: 0;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.cuentas th {
+  background: rgba(16, 185, 129, 0.05);
+  color: var(--pico-primary);
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+table.cuentas td {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--pico-border-color);
+  font-size: 0.9rem;
+}
+
+table.cuentas tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Content block spacing rules */
+.index-content p {
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.index-content ul, .index-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.index-content li {
+  margin-bottom: 0.5rem;
 }

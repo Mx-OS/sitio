@@ -1,21 +1,17 @@
 default:
   image: docker.io/library/alpine:latest
-
-variables:
-  GIT_SUBMODULE_STRATEGY: recursive
-
-test:  # builds and tests your site
-  script:
+  before_script:
     - apk add -U --no-cache hugo py3-docutils
+
+test:  # builds and tests your site on merge requests / other branches
+  script:
     - hugo
   rules:
     - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
 
-create-pages:
+pages:  # deploys the compiled site to GitLab Pages on the default branch
   script:
-    - apk add -U --no-cache hugo py3-docutils
     - hugo
-  pages: true
   artifacts:
     paths:
       - public

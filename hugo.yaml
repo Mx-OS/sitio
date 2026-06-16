@@ -1,9 +1,9 @@
 ---
 baseURL: "https://mx-os.mx/"
 title: Fundación MxOS
-copyright: "Fundación MxOS (en formación) :: GPLv3 o >"
+copyright: "Fundación MxOS (en formación) | GPLv3"
 languageCode: "es-mx"
-theme: terminal
+theme: mxos
 defaultContentLanguage: es
 
 pagination:
@@ -30,7 +30,7 @@ languages:
     languageCode: es-mx
     title: Fundación MxOS
     params:
-      subtitle: Sitio oficial de la Fundación MxOS.
+      subtitle: "Sitio oficial de la Fundación MxOS: construyendo soberanía tecnológica con una distribución Linux segura, abierta y adaptada a México."
       owner: Fundación MxOS
       keywords: "fundación, mxos, mx-os, software libre, gnu, linux"
       copyright: CC-BY-SA 2025

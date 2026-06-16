@@ -1,0 +1,1047 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+/* Main Theme variables override for Pico CSS v2 */
+:root {
+  --pico-font-family-sans-serif: 'Inter', system-ui, -apple-system, sans-serif;
+  --pico-font-family: var(--pico-font-family-sans-serif);
+  --pico-border-radius: 12px;
+  
+  /* MxOS Emerald & Deep Slate Theme */
+  --pico-primary: #10b981;
+  --pico-primary-background: #10b981;
+  --pico-primary-hover: #059669;
+  --pico-primary-border: #10b981;
+  
+  --pico-transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark theme (default / system) */
+[data-theme="dark"], :root:not([data-theme="light"]) {
+  --pico-background-color: #0b0f19;
+  --pico-card-background-color: #111827;
+  --pico-text-selection-color: rgba(16, 185, 129, 0.2);
+  --pico-color: #e2e8f0;
+  --pico-muted-color: #94a3b8;
+  --pico-border-color: #1e293b;
+  --pico-card-border-color: #1e293b;
+  
+  --nav-bg: rgba(11, 15, 25, 0.75);
+  --border-glow: rgba(16, 185, 129, 0.15);
+  
+  --gradient-heading: linear-gradient(135deg, #f8fafc 0%, #94a3b8 100%);
+  --gradient-accent: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+  
+  --toggle-icon-color: #ffffff;
+}
+
+/* Light theme support (explicit toggle) */
+[data-theme="light"] {
+  --pico-background-color: #f8fafc;
+  --pico-card-background-color: #ffffff;
+  --pico-color: #1e293b;
+  --pico-muted-color: #64748b;
+  --pico-border-color: #e2e8f0;
+  --pico-card-border-color: #e2e8f0;
+  
+  --nav-bg: rgba(248, 250, 252, 0.8);
+  --border-glow: rgba(16, 185, 129, 0.1);
+  
+  --gradient-heading: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  --gradient-accent: linear-gradient(135deg, #059669 0%, #2563eb 100%);
+  
+  --toggle-icon-color: #1e293b;
+}
+
+/* Automatic light theme based on system preference (if not explicitly overridden to dark) */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --pico-background-color: #f8fafc;
+    --pico-card-background-color: #ffffff;
+    --pico-color: #1e293b;
+    --pico-muted-color: #64748b;
+    --pico-border-color: #e2e8f0;
+    --pico-card-border-color: #e2e8f0;
+    
+    --nav-bg: rgba(248, 250, 252, 0.8);
+    --border-glow: rgba(16, 185, 129, 0.1);
+    
+    --gradient-heading: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+    --gradient-accent: linear-gradient(135deg, #059669 0%, #2563eb 100%);
+    
+    --toggle-icon-color: #1e293b;
+  }
+}
+
+/* --- Layout & Base Animations --- */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  opacity: 0;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+main.container {
+  flex: 1 0 auto;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  max-width: 1100px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h1, h2 {
+  background: var(--gradient-heading);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--pico-background-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--pico-border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pico-primary);
+}
+
+/* --- Header / Navigation --- */
+header.header-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--pico-border-color);
+  transition: var(--pico-transition);
+}
+
+header.header-sticky nav {
+  padding: 0.5rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header.header-sticky nav ul {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+header.header-sticky nav ul li {
+  padding: 0;
+}
+
+header.header-sticky nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--pico-color);
+  transition: var(--pico-transition);
+}
+
+header.header-sticky nav a:hover {
+  color: var(--pico-primary);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+}
+
+.logo-icon {
+  width: 28px;
+  height: 28px;
+}
+
+/* --- Footer --- */
+footer.footer-mxos {
+  background: var(--pico-card-background-color);
+  border-top: 1px solid var(--pico-border-color);
+  padding: 2rem 0;
+  margin-top: auto;
+  text-align: center;
+}
+
+footer.footer-mxos .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+footer.footer-mxos a {
+  color: var(--pico-primary);
+  text-decoration: none;
+}
+
+footer.footer-mxos a:hover {
+  text-decoration: underline;
+}
+
+/* --- Homepage / Intro --- */
+.main-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0 3rem 0;
+}
+
+.main-logo {
+  max-width: 180px;
+  width: 100%;
+  filter: drop-shadow(0 0 15px var(--border-glow));
+  transition: var(--pico-transition);
+}
+
+.main-logo:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+/* Feature Grid */
+.vision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.vision-card {
+  border: 1px solid var(--pico-border-color);
+  border-radius: var(--pico-border-radius);
+  padding: 1.5rem;
+  background: var(--pico-card-background-color);
+  transition: var(--pico-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.vision-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--pico-primary);
+  box-shadow: 0 10px 20px -10px var(--border-glow);
+}
+
+.vision-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-accent);
+  opacity: 0;
+  transition: var(--pico-transition);
+}
+
+.vision-card:hover::after {
+  opacity: 1;
+}
+
+.vision-card h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+/* --- Blog & Noticias --- */
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+article.post {
+  padding: 2rem;
+  border: 1px solid var(--pico-border-color);
+  border-radius: var(--pico-border-radius);
+  background: var(--pico-card-background-color);
+  transition: var(--pico-transition);
+}
+
+article.post:hover {
+  border-color: var(--border-glow);
+  box-shadow: 0 8px 30px -10px rgba(0,0,0,0.3);
+}
+
+article.post h2.post-title {
+  margin-top: 0;
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+article.post h2.post-title a {
+  text-decoration: none;
+  background: var(--gradient-heading);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+article.post h2.post-title a:hover {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--pico-muted-color);
+  margin-bottom: 1.25rem;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.post-tags a {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--pico-primary);
+  padding: 0.15rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  text-decoration: none;
+  transition: var(--pico-transition);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.post-tags a:hover {
+  background: var(--pico-primary);
+  color: #fff;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  color: var(--pico-primary);
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: var(--pico-transition);
+}
+
+.read-more:hover {
+  color: var(--pico-primary-hover);
+  transform: translateX(4px);
+}
+
+/* --- Admonitions / Alert Blocks (Sphinx/RST compatibility) --- */
+.admonition {
+  border-left: 4px solid var(--pico-primary);
+  background: rgba(16, 185, 129, 0.05);
+  padding: 1.25rem;
+  border-radius: 0 var(--pico-border-radius) var(--pico-border-radius) 0;
+  margin: 1.5rem 0;
+}
+
+.admonition .admonition-title {
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  color: var(--pico-primary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.admonition.note {
+  border-left-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.05);
+}
+.admonition.note .admonition-title {
+  color: #3b82f6;
+}
+
+.admonition.warning {
+  border-left-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.05);
+}
+.admonition.warning .admonition-title {
+  color: #f59e0b;
+}
+
+.admonition.danger {
+  border-left-color: #ef4444;
+  background: rgba(239, 68, 68, 0.05);
+}
+.admonition.danger .admonition-title {
+  color: #ef4444;
+}
+
+/* --- Dynamic Tables --- */
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--pico-border-color);
+  border-radius: var(--pico-border-radius);
+  margin: 2rem 0;
+  background: var(--pico-card-background-color);
+}
+
+table.cuentas {
+  margin: 0;
+  width: 100%;
+}
+
+table.cuentas th {
+  background: rgba(16, 185, 129, 0.05);
+  font-weight: 600;
+  color: var(--pico-primary);
+  padding: 1rem;
+}
+
+table.cuentas td {
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+/* --- Responsive Menu Hamburger (Pure CSS) --- */
+.menu-toggle {
+  display: none !important;
+}
+
+.menu-icon {
+  display: none !important;
+  cursor: pointer;
+  padding: 0.5rem;
+  position: relative;
+  user-select: none;
+}
+
+.menu-icon .navicon {
+  background: var(--pico-color);
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 18px;
+}
+
+.menu-icon .navicon:before,
+.menu-icon .navicon:after {
+  background: var(--pico-color);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+.menu-icon .navicon:before {
+  top: 5px;
+}
+
+.menu-icon .navicon:after {
+  top: -5px;
+}
+
+@media (max-width: 768px) {
+  header.header-sticky nav {
+    flex-wrap: wrap;
+  }
+  
+  header.header-sticky nav ul.menu--desktop {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    border-top: 1px solid var(--pico-border-color);
+    margin-top: 0.5rem;
+  }
+  
+  header.header-sticky nav ul.menu--desktop li {
+    width: 100%;
+  }
+  
+  header.header-sticky nav ul.menu--desktop a {
+    display: block;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--pico-border-color);
+  }
+  
+  .menu-icon {
+    display: block !important;
+  }
+  
+  .menu-toggle:checked ~ ul.menu--desktop {
+    display: flex;
+  }
+  
+  .menu-toggle:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .menu-toggle:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+  
+  .menu-toggle:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+    top: 0;
+  }
+}
+
+/* --- Homepage Document & Section Cardification --- */
+.document {
+  margin-top: 1.5rem;
+}
+
+.document h1.title {
+  text-align: center;
+  font-size: 2.75rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Style the Visión y Enfoque section as a responsive grid of cards! */
+#vision-y-enfoque {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin: 3.5rem 0;
+}
+
+#vision-y-enfoque h2 {
+  grid-column: 1 / -1;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  background: var(--gradient-heading);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2rem;
+}
+
+#vision-y-enfoque .section {
+  border: 1px solid var(--pico-border-color);
+  border-radius: var(--pico-border-radius);
+  padding: 1.5rem;
+  background: var(--pico-card-background-color);
+  transition: var(--pico-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+#vision-y-enfoque .section:hover {
+  transform: translateY(-4px);
+  border-color: var(--pico-primary);
+  box-shadow: 0 10px 25px -10px var(--border-glow);
+}
+
+#vision-y-enfoque .section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-accent);
+  opacity: 0;
+  transition: var(--pico-transition);
+}
+
+#vision-y-enfoque .section:hover::after {
+  opacity: 1;
+}
+
+#vision-y-enfoque .section h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  color: var(--pico-primary);
+  font-weight: 600;
+}
+
+#vision-y-enfoque .section p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Styled panels for secondary sections */
+#para-quien, #unete-al-proyecto {
+  border: 1px solid var(--pico-border-color);
+  border-radius: var(--pico-border-radius);
+  padding: 2rem;
+  background: var(--pico-card-background-color);
+  margin: 2.5rem 0;
+  box-shadow: 0 4px 20px -10px rgba(0, 0, 0, 0.2);
+  transition: var(--pico-transition);
+}
+
+#para-quien:hover, #unete-al-proyecto:hover {
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+#para-quien h2, #unete-al-proyecto h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+/* Hero CTA buttons on Homepage */
+.document > ul.simple {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 1rem !important;
+  justify-content: center !important;
+  list-style: none !important;
+  list-style-type: none !important;
+  padding: 0 !important;
+  margin: 2.5rem 0 !important;
+}
+
+.document > ul.simple li {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  list-style-type: none !important;
+}
+
+.document > ul.simple li::before {
+  content: "" !important;
+  display: none !important;
+}
+
+.document > ul.simple a {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--pico-border-radius);
+  font-weight: 600;
+  text-decoration: none;
+  font-family: 'Outfit', sans-serif;
+  transition: var(--pico-transition);
+}
+
+/* Make first link primary filled, second link secondary outline */
+.document > ul.simple li:first-child a {
+  background: var(--pico-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+}
+
+.document > ul.simple li:first-child a:hover {
+  background: var(--pico-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.document > ul.simple li:nth-child(2) a {
+  background: transparent;
+  color: var(--pico-primary);
+  border: 2px solid var(--pico-primary);
+}
+
+.document > ul.simple li:nth-child(2) a:hover {
+  background: rgba(16, 185, 129, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Styled contact button in join section */
+.document a[href*="/contacto"], .document .reference[href*="/contacto"],
+.index-content a[href*="/contacto"], .index-content .reference[href*="/contacto"] {
+  display: inline-block;
+  padding: 0.8rem 2.2rem;
+  background: var(--pico-primary);
+  color: #ffffff;
+  border-radius: var(--pico-border-radius);
+  font-weight: 600;
+  text-decoration: none;
+  font-family: 'Outfit', sans-serif;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+  transition: var(--pico-transition);
+}
+
+.document a[href*="/contacto"]:hover, .document .reference[href*="/contacto"]:hover,
+.index-content a[href*="/contacto"]:hover, .index-content .reference[href*="/contacto"]:hover {
+  background: var(--pico-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+/* --- Special Mention Section prominent styling --- */
+#mencion-especial {
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: var(--pico-border-radius);
+  padding: 2.25rem;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.04) 0%, rgba(59, 130, 246, 0.04) 100%);
+  box-shadow: 0 10px 30px -15px rgba(16, 185, 129, 0.15);
+  margin: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+#mencion-especial h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+#mencion-especial p {
+  color: var(--pico-color);
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+#mencion-especial ul.simple {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+  gap: 1.5rem !important;
+  list-style: none !important;
+  list-style-type: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#mencion-especial ul.simple li {
+  background: var(--pico-card-background-color) !important;
+  border: 1px solid var(--pico-border-color) !important;
+  border-radius: var(--pico-border-radius) !important;
+  padding: 1.5rem !important;
+  text-align: center !important;
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  transition: var(--pico-transition) !important;
+  list-style: none !important;
+  list-style-type: none !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+  margin: 0 !important;
+}
+
+#mencion-especial ul.simple li:hover {
+  transform: translateY(-4px) !important;
+  border-color: var(--pico-primary) !important;
+  box-shadow: 0 8px 20px -5px rgba(16, 185, 129, 0.3) !important;
+}
+
+#mencion-especial ul.simple li::before {
+  content: "" !important;
+  display: none !important;
+}
+
+#mencion-especial ul.simple li strong {
+  display: block;
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  color: #ffffff;
+}
+
+#mencion-especial ul.simple li a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--pico-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(16, 185, 129, 0.4);
+}
+
+#mencion-especial ul.simple li a:hover {
+  color: var(--pico-primary-hover);
+  border-bottom-style: solid;
+}
+
+/* --- Communication Channels (Contacto) Cards --- */
+#canales-de-comunicacion ul {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 1.5rem !important;
+  list-style: none !important;
+  list-style-type: none !important;
+  padding: 0 !important;
+  margin: 2.5rem 0 0 0 !important;
+}
+
+#canales-de-comunicacion ul li {
+  background: var(--pico-card-background-color) !important;
+  border: 1px solid var(--pico-border-color) !important;
+  border-radius: var(--pico-border-radius) !important;
+  padding: 2.25rem 2rem !important;
+  text-align: center !important;
+  font-size: 0.95rem !important;
+  color: var(--pico-muted-color) !important;
+  line-height: 1.6 !important;
+  transition: var(--pico-transition) !important;
+  list-style: none !important;
+  list-style-type: none !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#canales-de-comunicacion ul li::before {
+  content: "" !important;
+  display: none !important;
+}
+
+/* Elegant brand-colored top border stripe */
+#canales-de-comunicacion ul li::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  opacity: 0.4;
+  transition: var(--pico-transition);
+}
+
+#canales-de-comunicacion ul li:nth-child(1)::after {
+  background: #0088cc;
+}
+
+#canales-de-comunicacion ul li:nth-child(2)::after {
+  background: #25d366;
+}
+
+#canales-de-comunicacion ul li:nth-child(3)::after {
+  background: var(--pico-primary);
+}
+
+/* Card hover states */
+#canales-de-comunicacion ul li:hover {
+  transform: translateY(-5px) !important;
+}
+
+#canales-de-comunicacion ul li:hover::after {
+  opacity: 1;
+}
+
+#canales-de-comunicacion ul li:nth-child(1):hover {
+  border-color: rgba(0, 136, 204, 0.4) !important;
+  box-shadow: 0 12px 30px -10px rgba(0, 136, 204, 0.3) !important;
+}
+
+#canales-de-comunicacion ul li:nth-child(2):hover {
+  border-color: rgba(37, 211, 102, 0.4) !important;
+  box-shadow: 0 12px 30px -10px rgba(37, 211, 102, 0.3) !important;
+}
+
+#canales-de-comunicacion ul li:nth-child(3):hover {
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  box-shadow: 0 12px 30px -10px rgba(16, 185, 129, 0.3) !important;
+}
+
+/* Handle spacing of RST-generated paragraphs inside cards */
+#canales-de-comunicacion ul li p {
+  margin: 0 0 1rem 0 !important;
+  width: 100%;
+}
+
+#canales-de-comunicacion ul li p.first {
+  margin-bottom: 0.5rem !important;
+}
+
+#canales-de-comunicacion ul li p.first strong {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--pico-color);
+  transition: var(--pico-transition);
+}
+
+#canales-de-comunicacion ul li:nth-child(1):hover p.first strong {
+  color: #0088cc;
+}
+
+#canales-de-comunicacion ul li:nth-child(2):hover p.first strong {
+  color: #25d366;
+}
+
+#canales-de-comunicacion ul li:nth-child(3):hover p.first strong {
+  color: var(--pico-primary);
+}
+
+#canales-de-comunicacion ul li p:last-child {
+  margin-bottom: 0 !important;
+  margin-top: auto !important;
+}
+
+/* Styled links inside contact cards as action buttons */
+#canales-de-comunicacion ul li a {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.6rem 1.8rem;
+  color: #ffffff !important;
+  border-radius: var(--pico-border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: 'Outfit', sans-serif;
+  transition: var(--pico-transition);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#canales-de-comunicacion ul li:nth-child(1) a {
+  background: #0088cc;
+}
+#canales-de-comunicacion ul li:nth-child(1) a:hover {
+  background: #0077b5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
+}
+
+#canales-de-comunicacion ul li:nth-child(2) a {
+  background: #25d366;
+}
+#canales-de-comunicacion ul li:nth-child(2) a:hover {
+  background: #1ebe57;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+#canales-de-comunicacion ul li:nth-child(3) a {
+  background: var(--pico-primary);
+}
+#canales-de-comunicacion ul li:nth-child(3) a:hover {
+  background: var(--pico-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* --- General Page/Post Title Gradients & UI Polishing --- */
+.post-title, .post-title a {
+  background: var(--gradient-heading);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  border-bottom: none !important;
+}
+
+article.page .post-title a {
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Center and style the intro lead paragraph for a modern, inviting flow */
+.page.contacto .post-content > div > .document > p:first-of-type {
+  font-size: 1.25rem !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+  margin-top: 1rem !important;
+  margin-bottom: 2.5rem !important;
+  color: var(--pico-color) !important;
+  opacity: 0.95 !important;
+  text-align: center !important;
+  max-width: 800px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Center and color-gradient the sub-section headers */
+#canales-de-comunicacion h2 {
+  text-align: center !important;
+  margin-bottom: 2.5rem !important;
+  font-size: 2rem !important;
+  background: var(--gradient-heading) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* Theme Toggle Button Styling */
+.theme-toggle-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#theme-toggle {
+  background: transparent !important;
+  border: none !important;
+  padding: 0.5rem !important;
+  color: var(--toggle-icon-color) !important;
+  opacity: 1 !important;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none !important;
+  transition: var(--pico-transition);
+  border-radius: 50% !important;
+  width: 38px;
+  height: 38px;
+  margin: 0 !important;
+}
+
+#theme-toggle svg {
+  stroke: var(--toggle-icon-color) !important;
+  opacity: 1 !important;
+  fill: none !important;
+  transition: var(--pico-transition);
+}
+
+#theme-toggle:hover {
+  background: rgba(16, 185, 129, 0.1) !important;
+}
+
+#theme-toggle:hover svg {
+  stroke: var(--pico-primary) !important;
+}
+
+/* Ensure aligned menu bar item on mobile/desktop */
+@media (max-width: 768px) {
+  .theme-toggle-container {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--pico-border-color);
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  #theme-toggle {
+    margin-left: -0.5rem !important;
+  }
+}
+

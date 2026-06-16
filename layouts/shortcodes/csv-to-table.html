@@ -11,13 +11,22 @@
             </tr>
           </thead>
           <tbody>
+            {{ $total := 0.0 }}
             {{ range after 1 . }}
               <tr>
                 {{ range . }}
                   <td>{{ . }}</td>
                 {{ end }}
               </tr>
+              {{ $amountStr := index . 3 }}
+              {{ $amountClean := replace $amountStr "," "" }}
+              {{ $amountFloat := float $amountClean }}
+              {{ $total = add $total $amountFloat }}
             {{ end }}
+            <tr class="total-row" style="font-weight: bold; border-top: 2px solid var(--pico-border-color);">
+              <td colspan="3" style="text-align: right; color: var(--pico-primary);">Total:</td>
+              <td style="color: var(--pico-primary);">${{ lang.FormatNumberCustom 2 $total "- . ," }}</td>
+            </tr>
           </tbody>
         </table>
       </div>
