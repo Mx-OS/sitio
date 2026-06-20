@@ -3,7 +3,6 @@ baseURL: "https://mx-os.mx/"
 title: Fundación MxOS
 copyright: "Fundación MxOS (en formación) | GPLv3"
 languageCode: "es-mx"
-theme: mxos
 defaultContentLanguage: es
 
 pagination:

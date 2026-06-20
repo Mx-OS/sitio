@@ -1,8 +1,0 @@
-name = "MxOS"
-license = "GPLv3"
-description = "A custom minimalist, modern theme for the MxOS Foundation website, built using Pico CSS."
-min_version = "0.90"
-
-[author]
-  name = "Fundación MxOS"
-  homepage = "https://mx-os.mx"
