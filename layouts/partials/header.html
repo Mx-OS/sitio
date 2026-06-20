@@ -64,10 +64,36 @@
       }
     }
 
+    function syncLogoTheme(theme) {
+      const mainLogo = document.querySelector(".main-logo");
+      if (mainLogo) {
+        try {
+          if (mainLogo.contentDocument) {
+            const svg = mainLogo.contentDocument.querySelector("svg");
+            if (svg) {
+              svg.setAttribute("data-theme", theme);
+            }
+          }
+        } catch (e) {
+          // Ignore potential cross-origin access issues
+        }
+      }
+    }
+
     // Initialize UI state after DOM is fully parsed
     document.addEventListener("DOMContentLoaded", function() {
       const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
       updateToggleUI(currentTheme);
+      syncLogoTheme(currentTheme);
+
+      // Listen to object load event in case it loads after DOMContentLoaded
+      const mainLogo = document.querySelector(".main-logo");
+      if (mainLogo) {
+        mainLogo.addEventListener("load", function() {
+          const theme = document.documentElement.getAttribute("data-theme") || "light";
+          syncLogoTheme(theme);
+        });
+      }
     });
 
     toggleBtn.addEventListener("click", function() {
@@ -77,6 +103,7 @@
       document.documentElement.setAttribute("data-theme", newTheme);
       localStorage.setItem("theme", newTheme);
       updateToggleUI(newTheme);
+      syncLogoTheme(newTheme);
     });
   })();
 </script>
