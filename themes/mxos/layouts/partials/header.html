@@ -68,16 +68,15 @@
       // For main header logo
       const headerLogo = document.querySelector(".logo-icon");
       if (headerLogo) {
-        headerLogo.src = theme === "dark" ? "/images/logo_dark.png" : "/images/logo.svg";
+        headerLogo.src = theme === "dark" ? "/images/logo_dark.svg" : "/images/logo.svg";
       }
       // For home page main logo
       const mainLogo = document.querySelector(".main-logo");
       if (mainLogo) {
         if (mainLogo.tagName.toLowerCase() === "object") {
-          mainLogo.data = theme === "dark" ? "/images/logo_dark.png" : "/images/logo.svg";
-          mainLogo.type = theme === "dark" ? "image/png" : "image/svg+xml";
+          mainLogo.data = theme === "dark" ? "/images/logo_dark.svg" : "/images/logo.svg";
         } else {
-          mainLogo.src = theme === "dark" ? "/images/logo_dark.png" : "/images/logo.svg";
+          mainLogo.src = theme === "dark" ? "/images/logo_dark.svg" : "/images/logo.svg";
         }
       }
     }
