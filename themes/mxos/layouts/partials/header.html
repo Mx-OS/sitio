@@ -64,9 +64,29 @@
       }
     }
 
-    // Initialize UI state
-    const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
-    updateToggleUI(currentTheme);
+    function updateLogos(theme) {
+      // For main header logo
+      const headerLogo = document.querySelector(".logo-icon");
+      if (headerLogo) {
+        headerLogo.src = theme === "dark" ? "/images/logo_dark.svg" : "/images/logo.svg";
+      }
+      // For home page main logo
+      const mainLogo = document.querySelector(".main-logo");
+      if (mainLogo) {
+        if (mainLogo.tagName.toLowerCase() === "object") {
+          mainLogo.data = theme === "dark" ? "/images/logo_dark.svg" : "/images/logo.svg";
+        } else {
+          mainLogo.src = theme === "dark" ? "/images/logo_dark.svg" : "/images/logo.svg";
+        }
+      }
+    }
+
+    // Initialize UI state after DOM is fully parsed
+    document.addEventListener("DOMContentLoaded", function() {
+      const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+      updateToggleUI(currentTheme);
+      updateLogos(currentTheme);
+    });
 
     toggleBtn.addEventListener("click", function() {
       const oldTheme = document.documentElement.getAttribute("data-theme") || "light";
@@ -75,6 +95,7 @@
       document.documentElement.setAttribute("data-theme", newTheme);
       localStorage.setItem("theme", newTheme);
       updateToggleUI(newTheme);
+      updateLogos(newTheme);
     });
   })();
 </script>
