@@ -60,3 +60,21 @@ El flujo de trabajo para colaborar es:
 * Abre una petición de cambios (merge request) y avísanos en `Telegram <https://t.me/mx_os_mx>`_.
 
 Tu colaboración será publicada una vez que aprobemos la petición.
+
+Licencia
+========
+
+Este proyecto implementa una estructura de licenciamiento dual para proteger tanto el software del portal web como su acervo documental y editorial:
+
+* **Motor del sitio, plantillas y automatización:** El código fuente de las plantillas Hugo, estructuras de diseño, hojas de estilo y scripts de compilación se distribuyen bajo los términos de la `GNU Affero General Public License v3.0 o posterior`_ (AGPL-3.0-or-later).
+* **Contenido textual, notas y publicaciones:** Todo el material editorial, textos del blog y noticias se distribuyen bajo la licencia `Creative Commons Attribution-ShareAlike 4.0 International`_ (CC-BY-SA-4.0).
+* **Fragmentos de código en artículos:** Los ejemplos de código, configuraciones y fragmentos incluidos dentro de los artículos y publicaciones están licenciados de forma paralela bajo la `Licencia MIT`_.
+
+Consulta el archivo `LICENSE`_ para el texto íntegro de la licencia principal y el directorio ``LICENSES/`` para los textos canónicos de cumplimiento REUSE.
+
+..
+   Referencias y Enlaces:
+.. _GNU Affero General Public License v3.0 o posterior: https://www.gnu.org/licenses/agpl-3.0.html
+.. _Creative Commons Attribution-ShareAlike 4.0 International: https://creativecommons.org/licenses/by-sa/4.0/
+.. _Licencia MIT: https://opensource.org/license/mit
+.. _LICENSE: LICENSE
