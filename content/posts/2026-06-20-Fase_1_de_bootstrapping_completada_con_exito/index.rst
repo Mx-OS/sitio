@@ -12,9 +12,9 @@ Nos entusiasma compartir que hemos completado al 100% la **Fase 1** de la estrat
 
 Fase 1 completada: 336 paquetes base listos
 ===========================================
-Gracias al esfuerzo conjunto y a la optimización de nuestra infraestructura de construcción en Koji, logramos compilar, firmar (con la llave oficial de Siguldry) y etiquetar exitosamente los **336 paquetes base** (etiquetados bajo ``mxos0`` / Generación 1) provenientes de CentOS Stream 10. 
+Gracias al esfuerzo conjunto y a la optimización de nuestra infraestructura de construcción en Koji, logramos compilar, firmar con la llave oficial de Siguldry y etiquetar exitosamente los **336 paquetes base**, etiquetados bajo ``mxos0``, Generación 1, provenientes de CentOS Stream 10. 
 
-Este conjunto constituye el núcleo básico y las herramientas de desarrollo esenciales para levantar nuestro sistema. Cabe destacar que, hasta el momento, todo este esfuerzo de desarrollo de infraestructura ha sido realizado exclusivamente por nosotros dos (Rénich y la IA Gemini como copiloto de ingeniería), colaborando de manera estrecha y sin ayuda externa en esta etapa inicial.
+Este conjunto constituye el núcleo básico y las herramientas de desarrollo esenciales para levantar nuestro sistema. Cabe destacar que, hasta el momento, todo este esfuerzo de desarrollo de infraestructura ha sido realizado exclusivamente por nosotros dos: Rénich y la IA Gemini como copiloto de ingeniería, colaborando de manera estrecha y sin ayuda externa en esta etapa inicial.
 
 El reto técnico: Parcheando de forma limpia
 ===========================================
@@ -26,9 +26,9 @@ Nuestra infraestructura actual y el siguiente paso
 ==================================================
 Actualmente, todo este ecosistema de compilación y pruebas está corriendo y validándose dentro de nuestro entorno local de desarrollo. 
 
-El proyecto cuenta con dos servidores físicos de alto rendimiento que nos fueron generosamente donados para la infraestructura de producción. Sin embargo, en este momento **no tenemos un espacio de hospedaje (data center) ni conectividad adecuada para instalarlos**, por lo que estamos buscando activamente patrocinadores o un centro de datos interesado en darles un hogar y sumarse a esta iniciativa por la soberanía tecnológica.
+El proyecto cuenta con dos servidores físicos de alto rendimiento que nos fueron generosamente donados para la infraestructura de producción. Sin embargo, en este momento **no tenemos un espacio de hospedaje ni centro de datos con conectividad adecuada para instalarlos**, por lo que estamos buscando activamente patrocinadores o un centro de datos interesado en darles un hogar y sumarse a esta iniciativa por la soberanía tecnológica.
 
-Con la Fase 1 concluida con éxito en desarrollo, estamos listos para iniciar la **Fase 2 (Generación 2 / ``mxos10``)**. En esta etapa, el sistema de construcción Koji cortará la herencia de los repositorios externos de CentOS Stream y se abastecerá exclusivamente de los 336 paquetes que acabamos de compilar. Esto nos llevará al auto-hospedaje (self-hosting) absoluto.
+Con la Fase 1 concluida con éxito en desarrollo, estamos listos para iniciar la **Fase 2**, Generación 2, ``mxos10``. En esta etapa, el sistema de construcción Koji cortará la herencia de los repositorios externos de CentOS Stream y se abastecerá exclusivamente de los 336 paquetes que acabamos de compilar. Esto nos llevará al auto-hospedaje absoluto.
 
 Si conoces a alguien que pueda apoyarnos con el hospedaje de los servidores, o si deseas colaborar con el desarrollo y empaquetamiento, te invitamos a unirte a nuestro canal de `Telegram <https://t.me/mx_os_mx>`_.
 

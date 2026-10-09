@@ -15,7 +15,7 @@
   --pico-transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Dark theme (default / system) */
+/* Dark theme (default o system) */
 [data-theme="dark"], :root:not([data-theme="light"]) {
   --pico-background-color: #0b0f19;
   --pico-card-background-color: #111827;
@@ -115,7 +115,7 @@ h1, h2 {
   background: var(--pico-primary);
 }
 
-/* --- Header / Navigation --- */
+/* --- Header y navegación --- */
 header.header-sticky {
   position: sticky;
   top: 0;
@@ -198,7 +198,7 @@ footer.footer-mxos a:hover {
   text-decoration: underline;
 }
 
-/* --- Homepage / Intro --- */
+/* --- Portada e introducción --- */
 .main-logo-wrapper {
   display: flex;
   justify-content: center;
@@ -351,7 +351,7 @@ article.post h2.post-title a:hover {
   transform: translateX(4px);
 }
 
-/* --- Admonitions / Alert Blocks (Sphinx/RST compatibility) --- */
+/* --- Admonitions y bloques de alerta para compatibilidad Sphinx y RST --- */
 .admonition {
   border-left: 4px solid var(--pico-primary);
   background: rgba(16, 185, 129, 0.05);
@@ -533,7 +533,7 @@ table.cuentas td {
 }
 
 #vision-y-enfoque h2 {
-  grid-column: 1 / -1;
+  grid-column: 1/-1;
   margin-bottom: 1.5rem;
   text-align: center;
   background: var(--gradient-heading);

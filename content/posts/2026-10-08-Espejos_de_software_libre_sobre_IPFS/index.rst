@@ -27,7 +27,7 @@ Modo guerrilla y fase experimental
 ==================================
 Queremos ser transparentes con la comunidad: esta iniciativa arranca en **fase de experimentación activa**.
 
-No contamos aún con patrocinio de centro de datos ni conectividad comercial para albergar servidores de producción masivos, por lo que estamos apostando por una auténtica arquitectura de guerrilla: la ingesta inicial y el almacenamiento residen en nuestras propias estaciones de trabajo y discos de respaldo locales, mientras que nuestro servidor público (``web0.mx-os.mx``) opera estrictamente como una pasarela efímera de retransmisión (gateway) con cuota mínima de 1 GB y recolección de basura continua, evitando comprometer los servicios existentes de la fundación como Forgejo.
+No contamos aún con patrocinio de centro de datos ni conectividad comercial para albergar servidores de producción masivos, por lo que estamos apostando por una auténtica arquitectura de guerrilla: la ingesta inicial y el almacenamiento residen en nuestras propias estaciones de trabajo y discos de respaldo locales, mientras que nuestra pasarela pública oficial (``ipfs.mx-os.mx``, también accesible mediante ``gateway.ipfs.mx-os.mx``) opera como un punto efímero de retransmisión con cuota mínima de 1 GB y recolección de basura continua, evitando comprometer los servicios existentes de la fundación como Forgejo.
 
 El verdadero valor de este esquema reside en el enjambre: conforme más integrantes de la comunidad se sumen como nodos guardianes, más veloz, distribuida e indestructible será la red para toda la región.
 
