@@ -39,31 +39,38 @@ Para facilitar la adopción, hemos empaquetado el demonio Kubo para Fedora y Cen
 
 .. code-block:: bash
 
+   # Habilitar repositorio Copr e instalar el cliente Kubo
    sudo dnf copr enable renich/kubo
    sudo dnf install kubo
+
+   # Inicializar repositorio local e iniciar el demonio en modo usuario
    ipfs init
    systemctl --user enable --now ipfs.service
 
 Pineo granular por cuota de disco
 ---------------------------------
+
 No es necesario donar cientos de gigabytes; hemos estructurado el catálogo para que puedas respaldar ramas específicas según tu capacidad disponible:
 
 * **Nivel 1: Imágenes ISO de Fedora (~15 GB)**
 
   .. code-block:: bash
 
+     # Respaldar catálogo de imágenes ISO
      ipfs pin add /ipns/mirrors.mx-os.mx/fedora/iso
 
 * **Nivel 2: Sistema Base de CentOS Stream 10 (~15 GB)**
 
   .. code-block:: bash
 
+     # Respaldar sistema base CentOS Stream 10
      ipfs pin add /ipns/mirrors.mx-os.mx/centos-stream/10-stream/BaseOS
 
 * **Nivel 3: Paquetería completa Everything y AppStream (~80 a 150 GB)**
 
   .. code-block:: bash
 
+     # Respaldar repositorios de paquetería completa
      ipfs pin add /ipns/mirrors.mx-os.mx/fedora/releases/43/Everything
      ipfs pin add /ipns/mirrors.mx-os.mx/centos-stream/10-stream/AppStream
 
@@ -71,6 +78,7 @@ No es necesario donar cientos de gigabytes; hemos estructurado el catálogo para
 
   .. code-block:: bash
 
+     # Respaldar la totalidad del espejo comunitario
      ipfs pin add /ipns/mirrors.mx-os.mx
 
 Consumo nativo desde tu equipo
