@@ -64,7 +64,7 @@ No es necesario donar cientos de gigabytes; hemos estructurado el catálogo para
 
   .. code-block:: bash
 
-     ipfs pin add /ipns/mirrors.mx-os.mx/fedora/releases/44/Everything
+     ipfs pin add /ipns/mirrors.mx-os.mx/fedora/releases/43/Everything
      ipfs pin add /ipns/mirrors.mx-os.mx/centos-stream/10-stream/AppStream
 
 * **Nivel 4: Espejo maestro completo (~300 GB)**

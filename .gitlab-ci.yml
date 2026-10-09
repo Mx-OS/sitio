@@ -1,7 +1,7 @@
 default:
   image: docker.io/library/alpine:latest
   before_script:
-    - apk add -U --no-cache hugo py3-docutils
+    - apk add -U --no-cache hugo py3-docutils py3-pygments
 
 test:  # builds and tests your site on merge requests / other branches
   script:
