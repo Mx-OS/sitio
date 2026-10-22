@@ -53,14 +53,14 @@ languages:
           url: /acerca
           weight: -15
 
+        - identifier: colabora
+          name: Colabora
+          url: /colabora
+          weight: -14
+
         - identifier: blog
           name: Blog
           url: /posts
-          weight: -12
-
-        - identifier: noticias
-          name: Noticias
-          url: /noticias
           weight: -12
 
         - identifier: documentación

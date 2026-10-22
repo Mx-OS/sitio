@@ -1,24 +1,47 @@
-{{- $cover := false -}}
-{{- $autoCover := default $.Site.Params.autoCover false }}
+{{- $coverImg := false -}}
+{{- $coverURL := false -}}
 
 {{- if index .Params "cover" -}}
-  {{- if .Resources.GetMatch .Params.Cover }}
-    {{- $cover = (.Resources.GetMatch .Params.Cover).RelPermalink -}}
+  {{- with .Resources.GetMatch .Params.Cover -}}
+    {{- $coverImg = . -}}
   {{- else -}}
-    {{- $cover = absURL .Params.Cover -}}
+    {{- $coverURL = absURL .Params.Cover -}}
   {{- end -}}
 {{- else if $.Site.Params.AutoCover -}}
-  {{- if (not .Params.Cover) -}}
-    {{- if .Resources.GetMatch "cover.*" -}}
-      {{- $cover = (.Resources.GetMatch "cover.*").RelPermalink -}}
-    {{- end -}}
+  {{- with .Resources.GetMatch "cover.*" -}}
+    {{- $coverImg = . -}}
   {{- end -}}
 {{- end -}}
 
-{{if $cover -}}
-  <!-- Cover image found -->
-  <img src="{{ $cover }}"
+{{- if $coverImg -}}
+  {{- $alt := .Title | plainify | default "Imagen de portada" -}}
+  {{- $title := .Params.CoverCredit | plainify | default $alt -}}
+  {{- $w640 := $coverImg.Resize "640x webp q82" -}}
+  {{- $w1024 := $coverImg -}}
+  {{- if gt $coverImg.Width 1024 -}}
+    {{- $w1024 = $coverImg.Resize "1024x webp q82" -}}
+  {{- else -}}
+    {{- $w1024 = $coverImg.Resize (printf "%dx webp q82" $coverImg.Width) -}}
+  {{- end -}}
+  {{- $w1600 := $w1024 -}}
+  {{- if gt $coverImg.Width 1600 -}}
+    {{- $w1600 = $coverImg.Resize "1600x webp q82" -}}
+  {{- end -}}
+  <img
+    src="{{ $w1024.RelPermalink }}"
+    srcset="{{ $w640.RelPermalink }} 640w, {{ $w1024.RelPermalink }} {{ $w1024.Width }}w{{- if gt $coverImg.Width 1600 -}}, {{ $w1600.RelPermalink }} 1600w{{- end -}}"
+    sizes="(max-width: 768px) 100vw, 1024px"
+    width="{{ $w1024.Width }}"
+    height="{{ $w1024.Height }}"
     class="post-cover"
-    alt="{{ .Title | plainify | default " " }}"
-    title="{{ .Params.CoverCredit |plainify|default "Cover Image" }}" />
-{{- end }}
+    alt="{{ $alt }}"
+    title="{{ $title }}"
+    {{- if .IsPage }} fetchpriority="high" decoding="async"{{- else }} loading="lazy" decoding="async"{{- end }} />
+{{- else if $coverURL -}}
+  <img
+    src="{{ $coverURL }}"
+    class="post-cover"
+    alt="{{ .Title | plainify | default "Imagen de portada" }}"
+    title="{{ .Params.CoverCredit | plainify | default "Imagen de portada" }}"
+    {{- if .IsPage }} fetchpriority="high" decoding="async"{{- else }} loading="lazy" decoding="async"{{- end }} />
+{{- end -}}

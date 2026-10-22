@@ -1,14 +1,19 @@
 ---
 title: "Acerca"
-description: "Conoce la misión, visión, gobernanza, modelo operativo e impacto de la Fundación MxOS, A.C. (en formación) y del sistema operativo MxOS."
+description: "Conoce la misión, visión, principios de replicabilidad total y aprendizaje abierto, gobernanza e impacto de la Fundación MxOS, A.C. (en formación)."
 ---
 
 **MxOS** es una iniciativa estratégica para desarrollar y mantener un **sistema operativo GNU/Linux mexicano**, fundamentado en los
-principios del **Software Libre y de Código Abierto** y construido inicialmente sobre la base técnica de **CentOS Stream**.
+principios del **Software Libre y de Código Abierto** y construido inicialmente sobre la base técnica de **CentOS Stream 10**.
 
 El proyecto nace con el objetivo primordial de impulsar y fortalecer la **soberanía tecnológica de México**, proporcionando una
 plataforma robusta, segura, auditable y adaptada a los requerimientos del sector público, la academia, la industria nacional y la
 ciudadanía.
+
+Uno de nuestros pilares fundacionales es el **aprendizaje colectivo y la replicabilidad total**: estamos en el proceso activo de
+estudiar, aprender y descifrar paso a paso cómo se construye y replica un proyecto de la envergadura de **CentOS Stream 10**, con
+la meta de volvernos **100% replicables y estar 100% documentados** para que cualquier persona o institución pueda aprender cómo se
+hace, replicarnos y construir su propia distribución de forma autónoma.
 
 Misión y Visión
 ===============
@@ -16,14 +21,14 @@ Misión y Visión
 Nuestra Misión
 --------------
 Contribuir decisivamente a la soberanía tecnológica de México mediante la investigación científica, el desarrollo tecnológico
-abierto, la formación de talento especializado y la difusión del conocimiento libre, con el sistema operativo MxOS como proyecto
-emblemático y catalizador de un ecosistema tecnológico nacional.
+abierto, el aprendizaje técnico compartido, la formación de talento especializado y la difusión del conocimiento libre, con el
+sistema operativo MxOS como proyecto emblemático y catalizador de un ecosistema tecnológico nacional.
 
 Nuestra Visión
 --------------
 Consolidarnos como un centro de referencia en la investigación, el desarrollo y la innovación de tecnologías abiertas y ciencia
 aplicada; impulsando un México digitalmente soberano, equitativo y autosuficiente, con control pleno sobre su infraestructura
-tecnológica crítica.
+tecnológica crítica y procesos de ingeniería abiertos y reproducibles de principio a fin.
 
 Principios Fundamentales
 ========================
@@ -32,6 +37,16 @@ Software Libre y Auditabilidad
 ------------------------------
 Aprovechamos y contribuimos a componentes de software libre probados; garantizamos transparencia en el código fuente, seguridad
 verificable y las libertades de usar, estudiar, modificar y distribuir el sistema sin costos de licencia.
+
+Replicabilidad al 100%
+----------------------
+Desciframos cada eslabón técnico necesario para replicar una distribución empresarial como CentOS Stream 10, diseñando nuestra
+propia infraestructura para que cualquier comunidad, universidad, empresa o entidad pública pueda replicarnos íntegramente.
+
+Aprendizaje y Documentación Abierta
+-----------------------------------
+Estamos en un proceso continuo de aprendizaje colectivo; todo lo que investigamos, resolvemos y automatizamos se documenta al 100%
+en abierto, sin cajas negras ni conocimiento oculto, para que quien sea pueda aprender y hacer lo mismo.
 
 Enfoque y Relevancia Nacional
 -----------------------------
@@ -47,6 +62,26 @@ Colaboración Multisectorial
 ---------------------------
 Articulamos el trabajo conjunto entre el gobierno, la iniciativa privada, las universidades, los centros de investigación y la
 comunidad técnica para resolver retos tecnológicos estratégicos del país.
+
+Replicabilidad y Aprendizaje Abierto
+====================================
+Levantar desde cero una distribución GNU/Linux de grado empresarial es un desafío de ingeniería complejo. En **MxOS** asumimos ese
+reto como un **proceso de aprendizaje abierto y colectivo**: conforme investigamos y desciframos cómo funciona internamente la
+cadena de construcción de **CentOS Stream 10**, transformamos cada hallazgo en herramientas automatizadas y documentación pública
+exhaustiva:
+
+* **Ingesta Soberana de Fuentes:** Sincronización y espejado automatizado de repositorios de paquetes y almacenes de fuentes
+  mediante herramientas propias como ``rpms-sync``, garantizando independencia respecto a servicios externos.
+* **Granja de Compilación Reproducible:** Despliegue declarativo con Ansible de nuestra infraestructura de construcción basada en
+  **Koji**, compilación en entornos limpios y aislados con **Mock**, y firma criptográfica de paquetes RPM.
+* **Composición de Repositorios e Imágenes:** Ensamblaje verificable de canales DNF e imágenes instalables del sistema operativo
+  mediante ``mkosi`` y ``kiwi-ng``.
+* **Distribución Descentralizada:** Red comunitaria de espejos sobre **IPFS** para asegurar la disponibilidad y resiliencia de los
+  paquetes e imágenes en todo el territorio.
+
+Nuestra meta es que no exista ningún paso manual ni secreto operativo: queremos estar **100% documentados y ser 100% replicables**,
+de modo que cualquier persona, laboratorio universitario, organización social, empresa o dependencia gubernamental pueda estudiar
+nuestra documentación, reproducir la infraestructura completa por su cuenta y construir sobre ella.
 
 Organización y Gobernanza
 =========================
@@ -78,24 +113,28 @@ Impacto Estratégico
 ===================
 * **Autonomía Digital y Seguridad:** Reducción de la dependencia de software privativo extranjero y fortalecimiento de la postura de
   ciberseguridad en infraestructuras sensibles.
+* **Transferencia Abierta de Conocimiento:** Capacidad técnica documentada para que México y cualquier comunidad hispanohablante
+  dominen el ciclo completo de construcción y mantenimiento de un sistema operativo soberano.
 * **Impulso a la Economía TI Nacional:** Creación de empleos técnicos de alto valor y fortalecimiento de empresas tecnológicas
   mexicanas.
-* **Formación de Talento:** Vinculación con universidades e institutos tecnológicos para formar administradores, desarrolladores e
-  investigadores sobre plataformas abiertas.
+* **Formación de Talento:** Vinculación con universidades e institutos tecnológicos para formar administradores, empaquetadores,
+  desarrolladores e investigadores sobre plataformas abiertas.
 
 Equipo Impulsor
 ===============
 El núcleo inicial de coordinación técnica y organizativa está conformado por especialistas mexicanos con amplia trayectoria en
 software libre, infraestructura crítica y seguridad informática:
 
-* **René «Rénich» Bon Ćirić** (Ixtlahuacán de los Membrillos, Jalisco): Arquitecto de infraestructura, especialista en sistemas
+* **René «Rénich» Bon Ćirić**, desde Ixtlahuacán de los Membrillos, Jalisco: Arquitecto de infraestructura, especialista en sistemas
   GNU/Linux, automatización, empaquetamiento RPM y seguridad.
-* **Iván «imcsk8» Chavero** (Chihuahua, Chihuahua): Ingeniero de software, académico en la Universidad Autónoma de Chihuahua,
+* **Iván «imcsk8» Chavero**, desde Chihuahua, Chihuahua: Ingeniero de software, académico en la Universidad Autónoma de Chihuahua,
   promotor del software libre desde 1997 y fundador de SotolitoLabs.
-* **Sandino Araico Sánchez** (Cuernavaca, Morelos): Arquitecto de sistemas, programador políglota y especialista en redes,
+* **Sandino Araico Sánchez**, desde Cuernavaca, Morelos: Arquitecto de sistemas, programador políglota y especialista en redes,
   almacenamiento distribuido y seguridad informática.
 
-Junto a ellos participa una comunidad abierta de más de 100 colaboradores en toda la República Mexicana.
+Junto a ellos participa una comunidad abierta de más de 100 colaboradores en toda la República Mexicana que aprende, construye y
+documenta de forma colectiva. Si tienes experiencia o ganas de aprender, sin importar tu edad, revisa la sección
+`Colabora </colabora>`_ para conocer en qué áreas necesitamos apoyo hoy.
 
 Independencia del Proyecto
 ==========================
@@ -105,8 +144,9 @@ afiliación, dependencia ni relación con otros proyectos que utilicen nombres s
 
 Documentación Oficial Completa
 ==============================
-Toda nuestra arquitectura organizativa, estatutos, modelo de gobernanza, estrategia de implementación y manuales técnicos están
+Toda nuestra arquitectura organizativa, estatutos, modelo de gobernanza, metodología de replicación y manuales técnicos están
 publicados de forma abierta en nuestro portal de documentación:
 
+* `Manual de Replicación e Ingeniería <https://docs.mx-os.mx/es-MX/replicacion/replicaci%C3%B3n/>`_
 * `Documentación de Organización y Gobernanza <https://docs.mx-os.mx/es-MX/organizacion/acerca/>`_
 * `Portal General de Documentación de MxOS <https://docs.mx-os.mx/>`_

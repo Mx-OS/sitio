@@ -1,6 +1,9 @@
 ---
 title: "Koji"
 date: 2025-11-28T07:33:32-06:00
+category: "Blog"
+categories:
+  - Blog
 author: Rénich Bon Ćirić
 authorTwitter: "renich"
 tags:

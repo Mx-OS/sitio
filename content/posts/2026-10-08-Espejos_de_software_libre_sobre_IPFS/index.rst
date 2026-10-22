@@ -1,6 +1,9 @@
 ---
 title: "Nace la red comunitaria de espejos de software libre sobre IPFS"
 date: 2026-10-08T22:00:00-06:00
+category: "Blog"
+categories:
+  - Blog
 author: "Rénich Bon Ćirić y Gemini AI"
 description: "Presentamos la iniciativa de espejos descentralizados de la Fundación MxOS, distribuyendo paquetes de Fedora y CentOS Stream 10 mediante IPFS y DNSLink para fortalecer la soberanía tecnológica en México."
 cover: cover.jpg

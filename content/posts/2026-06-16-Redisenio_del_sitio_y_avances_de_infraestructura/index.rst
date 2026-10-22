@@ -1,8 +1,13 @@
 ---
 title: "Rediseño del sitio y avances de infraestructura"
 date: 2026-06-16T07:53:00-06:00
+category: "Noticia"
+categories:
+  - Noticia
 description: "Anunciamos el nuevo rediseño minimalista del sitio y la reanudación del trabajo en rpms-sync y ansible-koji."
 cover: cover.jpg
+aliases:
+  - /noticias/2026-06-16-redisenio_del_sitio_y_avances_de_infraestructura/
 ---
 
 ¡Hola a todos!

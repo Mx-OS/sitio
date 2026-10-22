@@ -64,7 +64,8 @@
 {{ if (isset .Params "cover") }}
   {{ $pageCover := .Param "cover" }}
   {{ with (.Resources.GetMatch (.Param "cover")) }}
-    {{ $pageCover = .RelPermalink }}
+    {{ $ogImg := .Fill "1200x630 webp q85" }}
+    {{ $pageCover = $ogImg.Permalink }}
   {{ end }}
   <meta property="og:image" content="{{ $pageCover | absURL }}">
 {{ else }}

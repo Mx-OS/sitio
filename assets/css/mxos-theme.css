@@ -209,7 +209,9 @@ footer.footer-mxos a:hover {
   margin: 2rem 0 3rem 0;
 }
 
-.main-logo {
+.main-logo,
+.document .main-logo,
+.post-content .main-logo {
   display: block;
   margin: 2rem auto;
   max-width: 200px;
@@ -270,6 +272,47 @@ footer.footer-mxos a:hover {
 }
 
 /* --- Blog & Noticias --- */
+nav.post-filters {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.35rem;
+  margin-bottom: 2rem;
+  background: var(--pico-card-background-color);
+  border: 1px solid var(--pico-border-color);
+  border-radius: 999px;
+}
+
+nav.post-filters .filter-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 1.15rem;
+  border-radius: 999px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--pico-muted-color);
+  text-decoration: none;
+  transition: var(--pico-transition);
+}
+
+nav.post-filters .filter-btn:hover {
+  color: var(--pico-color);
+  background: rgba(148, 163, 184, 0.1);
+}
+
+nav.post-filters .filter-btn.active {
+  background: var(--pico-primary);
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.3);
+}
+
+nav.post-filters .filter-btn.filter-blog.active {
+  background: #3b82f6;
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
+}
+
 .posts-list {
   display: flex;
   flex-direction: column;
@@ -313,10 +356,48 @@ article.post h2.post-title a:hover {
 .post-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.75rem;
   font-size: 0.85rem;
   color: var(--pico-muted-color);
   margin-bottom: 1.25rem;
+}
+
+.post-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: var(--pico-transition);
+}
+
+.post-badge.badge-noticia {
+  background: rgba(16, 185, 129, 0.14);
+  color: var(--pico-primary);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.post-badge.badge-noticia:hover {
+  background: var(--pico-primary);
+  color: #ffffff;
+}
+
+.post-badge.badge-blog {
+  background: rgba(59, 130, 246, 0.14);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+.post-badge.badge-blog:hover {
+  background: #3b82f6;
+  color: #ffffff;
 }
 
 .post-tags {
@@ -358,18 +439,20 @@ article.post h2.post-title a:hover {
 }
 
 /* Ensure embedded SVG <object> and media from Docutils never overflow cards */
-.post-content img,
-.post-content svg,
-.post-content object,
-.document img,
-.document svg,
-.document object {
+:where(.post-content, .document) :is(img, svg, object) {
   max-width: 100%;
   height: auto;
 }
 
-.post-content object[type="image/svg+xml"],
-.document object[type="image/svg+xml"] {
+.post-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--pico-border-radius);
+  margin: 1rem 0 1.5rem 0;
+}
+
+:where(.post-content, .document) object[type="image/svg+xml"] {
   display: block;
   margin: 1.5rem auto;
 }
@@ -613,19 +696,21 @@ dd {
   background-clip: text;
 }
 
-/* Style card grids on Homepage and Acerca sections */
+/* Style card grids on Homepage, Acerca and Colabora sections (2-column balanced matrix on desktop) */
 #vision-y-enfoque,
 #mision-y-vision,
-#principios-fundamentales {
+#principios-fundamentales,
+#areas-en-las-que-necesitamos-apoyo {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
-  margin: 3.5rem 0;
+  margin: 2.5rem 0;
 }
 
 #vision-y-enfoque h2,
 #mision-y-vision h2,
-#principios-fundamentales h2 {
+#principios-fundamentales h2,
+#areas-en-las-que-necesitamos-apoyo h2 {
   grid-column: 1/-1;
   margin-bottom: 1.5rem;
   text-align: center;
@@ -638,7 +723,8 @@ dd {
 
 #vision-y-enfoque .section,
 #mision-y-vision .section,
-#principios-fundamentales .section {
+#principios-fundamentales .section,
+#areas-en-las-que-necesitamos-apoyo .section {
   border: 1px solid var(--pico-border-color);
   border-radius: var(--pico-border-radius);
   padding: 1.5rem;
@@ -650,7 +736,8 @@ dd {
 
 #vision-y-enfoque .section:hover,
 #mision-y-vision .section:hover,
-#principios-fundamentales .section:hover {
+#principios-fundamentales .section:hover,
+#areas-en-las-que-necesitamos-apoyo .section:hover {
   transform: translateY(-4px);
   border-color: var(--pico-primary);
   box-shadow: 0 10px 25px -10px var(--border-glow);
@@ -658,7 +745,8 @@ dd {
 
 #vision-y-enfoque .section::after,
 #mision-y-vision .section::after,
-#principios-fundamentales .section::after {
+#principios-fundamentales .section::after,
+#areas-en-las-que-necesitamos-apoyo .section::after {
   content: '';
   position: absolute;
   top: 0;
@@ -672,13 +760,15 @@ dd {
 
 #vision-y-enfoque .section:hover::after,
 #mision-y-vision .section:hover::after,
-#principios-fundamentales .section:hover::after {
+#principios-fundamentales .section:hover::after,
+#areas-en-las-que-necesitamos-apoyo .section:hover::after {
   opacity: 1;
 }
 
 #vision-y-enfoque .section h3,
 #mision-y-vision .section h3,
-#principios-fundamentales .section h3 {
+#principios-fundamentales .section h3,
+#areas-en-las-que-necesitamos-apoyo .section h3 {
   margin-top: 0;
   font-size: 1.25rem;
   color: var(--pico-primary);
@@ -687,35 +777,65 @@ dd {
 
 #vision-y-enfoque .section p,
 #mision-y-vision .section p,
-#principios-fundamentales .section p {
+#principios-fundamentales .section p,
+#areas-en-las-que-necesitamos-apoyo .section p {
   margin-bottom: 0;
   font-size: 0.95rem;
   line-height: 1.6;
 }
 
 /* Styled panels for secondary sections */
-#para-quien, #unete-al-proyecto {
+#para-quien,
+#unete-al-proyecto,
+#replicabilidad-y-aprendizaje-abierto,
+#organizacion-y-gobernanza,
+#modelo-operativo-y-sostenibilidad,
+#impacto-estrategico,
+#equipo-impulsor,
+#independencia-del-proyecto,
+#documentacion-oficial-completa,
+#como-empezar {
   border: 1px solid var(--pico-border-color);
   border-radius: var(--pico-border-radius);
   padding: 2rem;
   background: var(--pico-card-background-color);
-  margin: 2.5rem 0;
+  margin: 2rem 0;
   box-shadow: 0 4px 20px -10px rgba(0, 0, 0, 0.2);
   transition: var(--pico-transition);
 }
 
-#para-quien:hover, #unete-al-proyecto:hover {
+#para-quien:hover,
+#unete-al-proyecto:hover,
+#replicabilidad-y-aprendizaje-abierto:hover,
+#organizacion-y-gobernanza:hover,
+#modelo-operativo-y-sostenibilidad:hover,
+#impacto-estrategico:hover,
+#equipo-impulsor:hover,
+#independencia-del-proyecto:hover,
+#documentacion-oficial-completa:hover,
+#como-empezar:hover {
   border-color: rgba(16, 185, 129, 0.2);
 }
 
-#para-quien h2, #unete-al-proyecto h2 {
+#para-quien h2,
+#unete-al-proyecto h2,
+#replicabilidad-y-aprendizaje-abierto h2,
+#organizacion-y-gobernanza h2,
+#modelo-operativo-y-sostenibilidad h2,
+#impacto-estrategico h2,
+#equipo-impulsor h2,
+#independencia-del-proyecto h2,
+#documentacion-oficial-completa h2,
+#como-empezar h2 {
   margin-top: 0;
   font-size: 1.6rem;
   margin-bottom: 1rem;
 }
 
-/* Hero CTA buttons on Homepage */
-.document > ul.simple {
+/* Hero CTA buttons on Homepage, Documentación Oficial links & CTA button groups */
+.document > ul.simple,
+#documentacion-oficial-completa > ul.simple,
+ul.cta-buttons {
   display: flex !important;
   flex-wrap: wrap !important;
   gap: 1rem !important;
@@ -723,22 +843,28 @@ dd {
   list-style: none !important;
   list-style-type: none !important;
   padding: 0 !important;
-  margin: 2.5rem 0 !important;
+  margin: 2rem 0 0.5rem 0 !important;
 }
 
-.document > ul.simple li {
+.document > ul.simple li,
+#documentacion-oficial-completa > ul.simple li,
+ul.cta-buttons li {
   margin: 0 !important;
   padding: 0 !important;
   list-style: none !important;
   list-style-type: none !important;
 }
 
-.document > ul.simple li::before {
+.document > ul.simple li::before,
+#documentacion-oficial-completa > ul.simple li::before,
+ul.cta-buttons li::before {
   content: "" !important;
   display: none !important;
 }
 
-.document > ul.simple a {
+.document > ul.simple a,
+#documentacion-oficial-completa > ul.simple a,
+ul.cta-buttons a {
   display: inline-block;
   padding: 0.8rem 1.8rem;
   border-radius: var(--pico-border-radius);
@@ -748,50 +874,36 @@ dd {
   transition: var(--pico-transition);
 }
 
-/* Make first link primary filled, second link secondary outline */
-.document > ul.simple li:first-child a {
+/* Make first link primary filled, subsequent links secondary outline */
+.document > ul.simple li:first-child a,
+#documentacion-oficial-completa > ul.simple li:first-child a,
+ul.cta-buttons li:first-child a {
   background: var(--pico-primary);
   color: #ffffff;
   box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
 }
 
-.document > ul.simple li:first-child a:hover {
+.document > ul.simple li:first-child a:hover,
+#documentacion-oficial-completa > ul.simple li:first-child a:hover,
+ul.cta-buttons li:first-child a:hover {
   background: var(--pico-primary-hover);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
 }
 
-.document > ul.simple li:nth-child(2) a {
+.document > ul.simple li:not(:first-child) a,
+#documentacion-oficial-completa > ul.simple li:not(:first-child) a,
+ul.cta-buttons li:not(:first-child) a {
   background: transparent;
   color: var(--pico-primary);
   border: 2px solid var(--pico-primary);
 }
 
-.document > ul.simple li:nth-child(2) a:hover {
+.document > ul.simple li:not(:first-child) a:hover,
+#documentacion-oficial-completa > ul.simple li:not(:first-child) a:hover,
+ul.cta-buttons li:not(:first-child) a:hover {
   background: rgba(16, 185, 129, 0.1);
   transform: translateY(-2px);
-}
-
-/* Styled contact button in join section */
-#unete-al-proyecto a[href*="/contacto"],
-#unete-al-proyecto .reference[href*="/contacto"] {
-  display: inline-block;
-  padding: 0.8rem 2.2rem;
-  background: var(--pico-primary);
-  color: #ffffff;
-  border-radius: var(--pico-border-radius);
-  font-weight: 600;
-  text-decoration: none;
-  font-family: 'Outfit', sans-serif;
-  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
-  transition: var(--pico-transition);
-}
-
-#unete-al-proyecto a[href*="/contacto"]:hover,
-#unete-al-proyecto .reference[href*="/contacto"]:hover {
-  background: var(--pico-primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
 }
 
 /* --- Special Mention Section prominent styling --- */
@@ -1192,9 +1304,24 @@ article.page .post-title a {
     padding: 1.25rem;
   }
 
+  #vision-y-enfoque,
+  #mision-y-vision,
+  #principios-fundamentales,
+  #areas-en-las-que-necesitamos-apoyo {
+    grid-template-columns: 1fr;
+  }
+
   #mencion-especial,
   #para-quien,
-  #unete-al-proyecto {
+  #unete-al-proyecto,
+  #replicabilidad-y-aprendizaje-abierto,
+  #organizacion-y-gobernanza,
+  #modelo-operativo-y-sostenibilidad,
+  #impacto-estrategico,
+  #equipo-impulsor,
+  #independencia-del-proyecto,
+  #documentacion-oficial-completa,
+  #como-empezar {
     padding: 1.25rem;
   }
 

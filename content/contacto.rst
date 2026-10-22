@@ -1,9 +1,10 @@
 ---
 title: "Contacto"
-description: "Ponte en contacto con la Fundación MxOS por Telegram, WhatsApp o correo electrónico."
+description: "Ponte en contacto con la Fundación MxOS, A.C. (en formación) por Telegram, WhatsApp o correo electrónico."
 ---
 
-¡Somos más de 100 colaboradores de todos los rincones de México! Nos encantaría platicar contigo, resolver tus dudas o sumarte al equipo.
+¡Somos más de 100 colaboradores de todos los rincones de México! Si quieres platicar con nosotros, resolver tus dudas o conocer
+`cómo colaborar en el proyecto </colabora>`_, escríbenos por cualquiera de nuestros canales.
 
 Canales de Comunicación
 =======================
@@ -22,6 +23,6 @@ Canales de Comunicación
 
 * **Correo electrónico**
 
-  Escríbenos para colaboraciones institucionales, prensa y dudas formales.
+  Escríbenos para colaboraciones institucionales, donación de equipo, prensa y dudas formales.
 
   `Enviar correo <mailto:contacto@mx-os.mx>`_

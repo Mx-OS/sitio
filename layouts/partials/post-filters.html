@@ -1,0 +1,9 @@
+{{- $active := "todos" -}}
+{{- if eq .Data.Singular "category" -}}
+  {{- $active = .Data.Term | lower -}}
+{{- end -}}
+<nav class="post-filters" aria-label="Filtrar publicaciones">
+  <a href="{{ "/posts/" | relLangURL }}" class="filter-btn {{ if eq $active "todos" }}active{{ end }}">Todos</a>
+  <a href="{{ "/categories/noticia/" | relLangURL }}" class="filter-btn filter-noticia {{ if eq $active "noticia" }}active{{ end }}">Noticias</a>
+  <a href="{{ "/categories/blog/" | relLangURL }}" class="filter-btn filter-blog {{ if eq $active "blog" }}active{{ end }}">Blog</a>
+</nav>

@@ -1,6 +1,11 @@
 ---
 title: "¡Ya tenemos forgejo!"
 date: 2025-06-04T18:30:28-06:00
+category: "Noticia"
+categories:
+  - Noticia
+aliases:
+  - /noticias/2025-06-04-ya_tenemos_forgejo/
 ---
 
 Es un placer anunciar, gracias a `HobOps <https://hobops.io/>`_ la disponibilidad de nuestro nuevo servidor con Forgejo en:

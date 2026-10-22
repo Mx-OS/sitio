@@ -1,6 +1,11 @@
 ---
 title: Tenemos un nuevo logotipo
 date: 2025-06-09T19:44:01-06:00
+category: "Noticia"
+categories:
+  - Noticia
+aliases:
+  - /noticias/2025-06-09-tenemos_nuevo_logotipo/
 ---
 
 ¡Mira que belleza!

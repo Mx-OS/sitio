@@ -1,6 +1,9 @@
 ---
 title: "Hola"
 date: 2025-05-26T11:28:11-06:00
+category: "Blog"
+categories:
+  - Blog
 author: Rénich Bon Ćirić
 authorTwitter: "renich"
 tags:

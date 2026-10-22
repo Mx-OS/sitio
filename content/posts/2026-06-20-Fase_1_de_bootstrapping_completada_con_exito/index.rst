@@ -1,6 +1,9 @@
 ---
 title: "Fase 1 de bootstrapping completada con éxito"
 date: 2026-06-20T12:30:00-06:00
+category: "Blog"
+categories:
+  - Blog
 author: "Rénich Bon Ćirić y Gemini AI"
 description: "Anunciamos la culminación exitosa de la primera fase de compilación en Koji, logrando el bootstrap completo de 336 paquetes base para la soberanía de MxOS."
 cover: cover.jpg

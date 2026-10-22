@@ -4,15 +4,22 @@
       {{ . }}
     </div>
   {{ end }}
+
+  {{ if eq .Section "posts" }}
+    {{ partial "post-filters.html" . }}
+  {{ end }}
   
   <div class="posts-list">
     {{ range .Paginator.Pages }}
       <article class="post">
         <h2 class="post-title">
-          <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
         </h2>
         
         <div class="post-meta">
+          {{- with .Params.category -}}
+            <a href="{{ (urlize (printf "categories/%s/" .)) | relLangURL }}" class="post-badge badge-{{ . | urlize }}">{{ . }}</a>
+          {{- end -}}
           {{- if .Date -}}
             <time class="post-date">
               {{- partial "post-date" . -}}
