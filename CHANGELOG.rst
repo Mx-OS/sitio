@@ -9,6 +9,30 @@ y este proyecto se adhiere a `Semantic Versioning <https://semver.org/spec/v2.0.
 [Unreleased]
 ============
 
+[0.3.0] - 2026-10-22
+--------------------
+
+.. rubric:: Añadido
+
+- Fuentes tipográficas variables locales en formato WOFF2 (``Inter`` y ``Outfit`` con subconjuntos ``latin`` y ``latin-ext``) en ``static/fonts/`` y ``assets/css/fonts.css`` con precarga en ``layouts/partials/head.html``.
+- Precompresión estática con **Brotli** (``.br``) y **Gzip** (``.gz``) en ``.gitlab-ci.yml`` y minificación automática de salida (``minifyOutput: true``) en ``hugo.yaml``.
+- Datos estructurados JSON-LD (``schema.org``) en ``layouts/partials/schema.html`` para ``Organization``, ``WebSite``, ``SoftwareApplication``, ``BreadcrumbList``, ``BlogPosting`` y ``NewsArticle``.
+- Generación dinámica de ``/robots.txt`` (``layouts/robots.txt``) y ``/llms.txt`` (``layouts/_default/index.llms.txt``) con el resumen oficial del proyecto, pilares de replicabilidad al 100%, áreas de colaboración y listado de publicaciones.
+- Shortcode ``layouts/shortcodes/recent-posts.html`` e integración de la sección **Últimas Publicaciones** en la portada (``content/_index.rst``) antes del bloque de cierre.
+
+.. rubric:: Cambiado
+
+- Formato de fechas de publicación y actualización a formato largo localizado en español (``:date_long``) en ``layouts/partials/post-date.html`` y ``layouts/partials/post-lastmod.html``.
+- Alineación numérica tabular (``font-variant-numeric: tabular-nums``) en la tabla de cuentas y metadatos OpenGraph/Twitter con tarjeta ``summary_large_image``.
+
+.. rubric:: Corregido
+
+- Enlace roto ``apple-touch-icon.png`` en ``layouts/partials/head.html`` reemplazado por ``favicon.png``.
+
+.. rubric:: Quitado
+
+- Dependencia externa de Google Fonts (``@import``) en ``assets/css/mxos-theme.css`` y referencias obsoletas a la fuente ``Hack`` en ``assets/css/fonts.css``.
+
 [0.2.0] - 2026-10-22
 --------------------
 
