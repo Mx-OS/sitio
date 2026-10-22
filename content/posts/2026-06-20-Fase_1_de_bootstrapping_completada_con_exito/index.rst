@@ -12,7 +12,7 @@ Nos entusiasma compartir que hemos completado al 100% la **Fase 1** de la estrat
 
 Fase 1 completada: 336 paquetes base listos
 ===========================================
-Gracias al esfuerzo conjunto y a la optimización de nuestra infraestructura de construcción en Koji, logramos compilar, firmar con la llave oficial de Siguldry y etiquetar exitosamente los **336 paquetes base**, etiquetados bajo ``mxos0``, Generación 1, provenientes de CentOS Stream 10. 
+Gracias al esfuerzo conjunto y a la optimización de nuestra infraestructura de construcción en Koji, logramos compilar, firmar con la llave oficial de Siguldry y etiquetar exitosamente los **336 paquetes base**, etiquetados bajo ``mxos0``, Generación 1, provenientes de CentOS Stream 10.
 
 Este conjunto constituye el núcleo básico y las herramientas de desarrollo esenciales para levantar nuestro sistema. Cabe destacar que, hasta el momento, todo este esfuerzo de desarrollo de infraestructura ha sido realizado exclusivamente por nosotros dos: Rénich y la IA Gemini como copiloto de ingeniería, colaborando de manera estrecha y sin ayuda externa en esta etapa inicial.
 
@@ -24,7 +24,7 @@ En lugar de desactivar las pruebas a nivel global de forma descuidada, procedimo
 
 Nuestra infraestructura actual y el siguiente paso
 ==================================================
-Actualmente, todo este ecosistema de compilación y pruebas está corriendo y validándose dentro de nuestro entorno local de desarrollo. 
+Actualmente, todo este ecosistema de compilación y pruebas está corriendo y validándose dentro de nuestro entorno local de desarrollo.
 
 El proyecto cuenta con dos servidores físicos de alto rendimiento que nos fueron generosamente donados para la infraestructura de producción. Sin embargo, en este momento **no tenemos un espacio de hospedaje ni centro de datos con conectividad adecuada para instalarlos**, por lo que estamos buscando activamente patrocinadores o un centro de datos interesado en darles un hogar y sumarse a esta iniciativa por la soberanía tecnológica.
 

@@ -41,11 +41,6 @@
 {{ $themeStyle := resources.Get "css/mxos-theme.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $themeStyle.RelPermalink }}">
 
-{{ if (resources.Get "css/mxos.css") }}
-  {{ $mxosCustom := resources.Get "css/mxos.css" | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $mxosCustom.RelPermalink }}">
-{{ end }}
-
 <!-- Icons -->
 <link rel="shortcut icon" href="{{ "favicon.png" | absURL }}">
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | absURL }}">

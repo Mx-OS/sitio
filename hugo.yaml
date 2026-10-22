@@ -1,7 +1,7 @@
 ---
 baseURL: "https://mx-os.mx/"
 title: Fundación MxOS
-copyright: "Fundación MxOS (en formación) | GPLv3"
+copyright: "Fundación MxOS, A.C. (en formación) | GPLv3"
 locale: "es-mx"
 defaultContentLanguage: es
 
@@ -50,7 +50,7 @@ languages:
       main:
         - identifier: acerca
           name: Acerca
-          url: https://docs.mx-os.mx/es-MX/organizacion/acerca/
+          url: /acerca
           weight: -15
 
         - identifier: blog
@@ -71,11 +71,6 @@ languages:
         - identifier: cuentas
           name: Cuentas
           url: /cuentas
-          weight: -5
-
-        - identifier: gracias
-          name: Gracias
-          url: /gracias
           weight: -5
 
         - identifier: contacto

@@ -4,8 +4,10 @@ date: 2025-11-28T07:33:32-06:00
 author: Rénich Bon Ćirić
 authorTwitter: "renich"
 tags:
+
     - koji
     - infraestructura
+
 cover: 20251126-cover.png
 ---
 

@@ -1,31 +1,31 @@
 <header class="header-sticky">
-  <nav>
+  <nav class="container">
     <ul>
       <li>
-        <a href="{{ if $.Site.Params.Logo.LogoHomeLink }}{{ $.Site.Params.Logo.LogoHomeLink }}{{else}}{{ $.Site.BaseURL }}{{ end }}" class="logo-container">
+        <a href="{{ if $.Site.Params.Logo.LogoHomeLink }}{{ $.Site.Params.Logo.LogoHomeLink }}{{ else }}{{ $.Site.BaseURL }}{{ end }}" class="logo-container">
           <img src="/images/logo.svg" alt="MxOS Logo" class="logo-icon" />
           <span>{{ with $.Site.Params.Logo.logoText }}{{ . }}{{ else }}{{ $.Site.Title }}{{ end }}</span>
         </a>
       </li>
     </ul>
-    
+
     <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-    <label for="menu-toggle" class="menu-icon">
+    <label for="menu-toggle" class="menu-icon" aria-label="Abrir menú de navegación">
       <span class="navicon"></span>
     </label>
-    
+
     <ul class="menu--desktop">
       {{ range $.Site.Menus.main }}
         <li>
-          <a href="{{ .URL }}" {{ if .Params.NewTab -}} target="_blank" {{- end }}>
+          <a href="{{ .URL }}" {{ if .Params.NewTab -}} target="_blank" rel="noopener" {{- end }}>
             {{ .Name }}
           </a>
         </li>
       {{ end }}
       <li class="theme-toggle-container">
-        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
-          <!-- Sun icon (shown in dark theme) -->
-          <svg id="theme-toggle-sun" class="theme-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+        <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Cambiar tema de color">
+          <!-- Sun icon (shown in dark theme via CSS) -->
+          <svg id="theme-toggle-sun" class="theme-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -36,8 +36,8 @@
             <line x1="4.22" y1="19.22" x2="5.64" y2="17.8"></line>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
-          <!-- Moon icon (shown in light theme) -->
-          <svg id="theme-toggle-moon" class="theme-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+          <!-- Moon icon (shown in light theme via CSS) -->
+          <svg id="theme-toggle-moon" class="theme-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
@@ -49,20 +49,7 @@
 <script>
   (function() {
     const toggleBtn = document.getElementById("theme-toggle");
-    const sunIcon = document.getElementById("theme-toggle-sun");
-    const moonIcon = document.getElementById("theme-toggle-moon");
-
     if (!toggleBtn) return;
-
-    function updateToggleUI(theme) {
-      if (theme === "dark") {
-        sunIcon.style.display = "block";
-        moonIcon.style.display = "none";
-      } else {
-        sunIcon.style.display = "none";
-        moonIcon.style.display = "block";
-      }
-    }
 
     function syncLogoTheme(theme) {
       const svgObjects = document.querySelectorAll('.main-logo, object[type="image/svg+xml"]');
@@ -80,13 +67,10 @@
       });
     }
 
-    // Initialize UI state after DOM is fully parsed
     document.addEventListener("DOMContentLoaded", function() {
       const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
-      updateToggleUI(currentTheme);
       syncLogoTheme(currentTheme);
 
-      // Listen to object load event in case it loads after DOMContentLoaded
       const svgObjects = document.querySelectorAll('.main-logo, object[type="image/svg+xml"]');
       svgObjects.forEach(function(obj) {
         obj.addEventListener("load", function() {
@@ -99,10 +83,9 @@
     toggleBtn.addEventListener("click", function() {
       const oldTheme = document.documentElement.getAttribute("data-theme") || "light";
       const newTheme = oldTheme === "dark" ? "light" : "dark";
-      
+
       document.documentElement.setAttribute("data-theme", newTheme);
       localStorage.setItem("theme", newTheme);
-      updateToggleUI(newTheme);
       syncLogoTheme(newTheme);
     });
   })();

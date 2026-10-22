@@ -1,12 +1,12 @@
 {{ with $file := .Get 0 }}
   {{ with resources.Get $file }}
     {{ with . | transform.Unmarshal }}
-      <div class="table">
-        <table class="cuentas">
+      <div class="overflow-auto table-wrapper">
+        <table class="striped cuentas">
           <thead>
             <tr>
               {{ range index . 0 }}
-                <th>{{ . }}</th>
+                <th scope="col">{{ . }}</th>
               {{ end }}
             </tr>
           </thead>
@@ -23,11 +23,13 @@
               {{ $amountFloat := float $amountClean }}
               {{ $total = add $total $amountFloat }}
             {{ end }}
-            <tr class="total-row" style="font-weight: bold; border-top: 2px solid var(--pico-border-color);">
-              <td colspan="3" style="text-align: right; color: var(--pico-primary);">Total:</td>
-              <td style="color: var(--pico-primary);">${{ lang.FormatNumberCustom 2 $total "- . ," }}</td>
-            </tr>
           </tbody>
+          <tfoot>
+            <tr class="total-row">
+              <th scope="row" colspan="3" class="total-label">Total:</th>
+              <td class="total-amount">${{ lang.FormatNumberCustom 2 $total "- . ," }}</td>
+            </tr>
+          </tfoot>
         </table>
       </div>
     {{ end }}

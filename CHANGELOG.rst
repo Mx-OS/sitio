@@ -30,9 +30,11 @@ Cambiado
 - Enlace del botón de "Acerca" para que apunte directamente a la sección de organización de la documentación.
 - Título y descripción meta de la página de inicio para mejorar el posicionamiento SEO.
 - Configuración de GitLab CI/CD (``.gitlab-ci.yml``) optimizada:
+
   - Renombrado el trabajo de compilación principal a ``pages`` para disparar la publicación correctamente.
   - Centralizada la instalación de dependencias en un ``before_script`` global.
   - Eliminado el soporte inactivo de submódulos recursivos.
+
 - Formato de los créditos del pie de página a una estructura minimalista con tuberías (``|``).
 
 Quitado

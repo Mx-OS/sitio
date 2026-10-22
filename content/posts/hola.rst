@@ -4,9 +4,11 @@ date: 2025-05-26T11:28:11-06:00
 author: Rénich Bon Ćirić
 authorTwitter: "renich"
 tags:
+
     - hola
     - mundo
     - ejemplo
+
 ---
 
 Te doy la bienvenida a nuestro nuevo sitio.
