@@ -1,11 +1,12 @@
 {{ with $file := .Get 0 }}
   {{ with resources.Get $file }}
     {{ with . | transform.Unmarshal }}
+      {{ $headers := index . 0 }}
       <div class="overflow-auto table-wrapper">
         <table class="striped cuentas">
           <thead>
             <tr>
-              {{ range index . 0 }}
+              {{ range $headers }}
                 <th scope="col">{{ . }}</th>
               {{ end }}
             </tr>
@@ -14,8 +15,8 @@
             {{ $total := 0.0 }}
             {{ range after 1 . }}
               <tr>
-                {{ range . }}
-                  <td>{{ . }}</td>
+                {{ range $idx, $val := . }}
+                  <td data-label="{{ index $headers $idx }}">{{ $val }}</td>
                 {{ end }}
               </tr>
               {{ $amountStr := index . 3 }}

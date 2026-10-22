@@ -1332,5 +1332,87 @@ article.page .post-title a {
   #canales-de-comunicacion ul li {
     padding: 1.5rem 1.25rem !important;
   }
+
+  /* Responsive stacked-card layout for Cuentas table on mobile */
+  .table-wrapper {
+    border: none;
+    background: transparent;
+  }
+
+  table.cuentas,
+  table.cuentas tbody,
+  table.cuentas tfoot {
+    display: block;
+    width: 100%;
+  }
+
+  table.cuentas thead {
+    display: none;
+  }
+
+  table.cuentas tbody tr {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.15rem 1.25rem;
+    margin-bottom: 1rem;
+    background: var(--pico-card-background-color) !important;
+    border: 1px solid var(--pico-border-color);
+    border-radius: var(--pico-border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  table.cuentas tbody td {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.25rem 0;
+    border: none;
+    text-align: right;
+    font-size: 0.92rem;
+    background: transparent !important;
+  }
+
+  table.cuentas tbody td:not(:last-child) {
+    border-bottom: 1px dashed rgba(148, 163, 184, 0.15);
+    padding-bottom: 0.45rem;
+  }
+
+  table.cuentas tbody td:last-child {
+    font-weight: 700;
+    color: var(--pico-primary);
+    font-size: 1.05rem;
+  }
+
+  table.cuentas tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    color: var(--pico-muted-color);
+    text-align: left;
+    flex-shrink: 0;
+  }
+
+  table.cuentas tfoot .total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.15rem 1.25rem;
+    background: var(--pico-card-background-color);
+    border: 1px solid var(--pico-primary);
+    border-radius: var(--pico-border-radius);
+  }
+
+  table.cuentas tfoot .total-row th,
+  table.cuentas tfoot .total-row td {
+    border: none;
+    padding: 0;
+    font-size: 1.15rem;
+  }
+
+  table.cuentas tfoot .total-row th.total-label {
+    text-align: left;
+  }
 }
 

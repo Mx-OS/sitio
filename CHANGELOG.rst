@@ -23,7 +23,7 @@ y este proyecto se adhiere a `Semantic Versioning <https://semver.org/spec/v2.0.
 .. rubric:: Cambiado
 
 - Unificación de las secciones ``Blog`` y ``Noticias`` dentro de ``content/posts/`` con redirecciones automáticas (``aliases``) desde las rutas anteriores de ``/noticias/``.
-- Fusión de la página ``Gracias`` dentro de ``Cuentas`` (``content/cuentas.rst``) con redirección desde ``/gracias/``.
+- Fusión de la página ``Gracias`` dentro de ``Cuentas`` (``content/cuentas.rst``) con redirección desde ``/gracias/`` y presentación responsiva en tarjetas apiladas con etiquetas ``data-label`` para vista móvil.
 - Actualización de la denominación oficial a ``Fundación MxOS, A.C. (en formación)`` en todo el sitio y el pie de página.
 - Consolidación de hojas de estilo en ``assets/css/mxos-theme.css`` aprovechando las clases semánticas de Pico CSS v2 (``.overflow-auto``, ``table.striped``, ``role="button"``) y eliminando todos los atributos ``style`` en línea.
 - Optimización sin pérdida perceptual de todas las imágenes rasterizadas del repositorio (reducción de ``~8.34 MB`` a ``~1.18 MB``).
