@@ -11,43 +11,50 @@ Instrucciones
 
 Desarrollo
 ----------
-Para desarrollar el sitio, solo hay que instalar `hugo` y clonar el sitio:
+Para desarrollar el sitio localmente, instala ``hugo`` junto con el soporte de reStructuredText (``python3-docutils`` y
+``python3-pygments``) y clona el repositorio:
 
 .. code-block:: bash
 
-   # instalar hugo
-   dnf -y install hugo
+   # instalar dependencias en Fedora
+   sudo dnf -y install hugo python3-docutils python3-pygments
 
-   # clonarlo
+   # clonar el repositorio
    git clone https://gitlab.com/MxOS/sitio.git
+   cd sitio
 
-Para más información sobre como hackearle a un sitio hecho en `hugo`, consulta su documentación en: https://gohugo.io/documentation/
+   # iniciar el servidor de desarrollo con recarga automática
+   make dev
+
+Para más información sobre cómo trabajar con un sitio hecho en ``hugo``, consulta su documentación oficial en:
+https://gohugo.io/documentation/
 
 .. note::
-   Procuramos usar la versión más actual siempre.
+   Procuramos usar siempre la versión más actual de Hugo.
 
 Creación de contenido
 ---------------------
-Para crear contenido nuevo, utilizamos el comando `hugo new`. Asegúrate de usar la extensión `.rst` para mantener el formato del
-sitio.
+Todas las publicaciones (tanto artículos técnicos de **Blog** como anuncios de **Noticia**) viven unificadas dentro de
+``content/posts/`` y se distinguen mediante los campos ``category`` y ``categories`` en el encabezado YAML (frontmatter). Asegúrate
+de usar siempre el formato ``.rst`` (reStructuredText).
 
-Blog
-~~~~
-Para agregar una entrada al blog, ejecuta:
+Para agregar una nueva publicación, crea un paquete de página (o ejecuta ``hugo new posts/AAAA-MM-DD-titulo/index.rst``) con el
+siguiente encabezado:
 
-.. code-block:: bash
+.. code-block:: yaml
 
-   hugo new posts/nombre-de-tu-entrada.rst
+   ---
+   title: "Título de la publicación"
+   date: 2026-10-22T12:00:00-06:00
+   category: "Blog" # Usa "Blog" o "Noticia"
+   categories:
+     - Blog # Usa "Blog" o "Noticia"
+   author: "Nombre del Autor"
+   description: "Resumen breve del artículo o noticia."
+   cover: cover.jpg
+   ---
 
-Noticias
-~~~~~~~~
-Para agregar una noticia, ejecuta:
-
-.. code-block:: bash
-
-   hugo new noticias/nombre-de-la-noticia.rst
-
-Una vez creado el archivo, edítalo con tu editor de texto preferido para agregar el contenido.
+Una vez creado el archivo, edítalo con tu editor de texto preferido para redactar el contenido en reStructuredText.
 
 Publicación
 -----------
