@@ -46,6 +46,11 @@ Licencia: Creative Commons CC BY-SA 4.0
       color-scheme: light dark;
       background: transparent;
     }
+    svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
     @media (prefers-color-scheme: dark) {
       #path45 {
         fill: #8d8d8d !important;
