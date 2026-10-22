@@ -1,0 +1,40 @@
+# {{ site.Title }}
+
+> {{ site.Params.subtitle }}
+
+**MxOS** es una iniciativa estratégica administrada por la **Fundación MxOS, A.C. (en formación)** para desarrollar y mantener un sistema operativo GNU/Linux mexicano basado en CentOS Stream 10, fundamentado en el Software Libre y orientado a la soberanía tecnológica de México.
+
+## Pilares Fundamentales
+
+- **Replicabilidad al 100% y Aprendizaje Abierto:** Estamos en el proceso activo de estudiar, aprender y descifrar paso a paso cómo se construye y replica CentOS Stream 10 (ingesta con `rpms-sync`, compilación aislada con Koji y Mock mediante Ansible, composición de imágenes con `mkosi` y `kiwi-ng`, y distribución sobre IPFS), documentando el 100% de la ingeniería para que cualquier persona, comunidad, universidad o institución pueda replicarnos y construir su propia distribución de forma autónoma.
+- **Software Libre y Auditabilidad:** Transparencia total en el código fuente, seguridad verificable y cero costos de licencia.
+- **Soberanía Tecnológica y Ecosistema Local:** Reducción de la dependencia tecnológica externa e impulso a una red nacional de profesionales, investigadores y empresas mexicanas.
+
+## Cómo Colaborar
+
+En MxOS todas las manos son bienvenidas, sin importar la edad; buscamos tanto a personas con experiencia como a quienes quieran aprender desde cero con nosotros en seis áreas:
+
+- **Infraestructura y Hospedaje:** Hospedaje de máquinas virtuales, donación de servidores físicos y alojamiento para la granja de compilación y espejos.
+- **Ingeniería y Documentación:** Empaquetamiento RPM, automatización con Ansible, administración de sistemas y documentación técnica abierta.
+- **Sitio Web, Comunidad y Redes:** Administración y mejora del sitio web, manejo de comunidad y gestión de redes sociales.
+- **Gestión y Procuración de Fondos:** Apoyo administrativo, promoción y desarrollo de proyectos para obtener fondos nacionales e internacionales.
+- **Academia e Investigación:** Vinculación con académicos, investigadores y universidades para proyectos conjuntos y formación de talento.
+- **Apoyo Económico:** Donaciones y patrocinios transparentes para sostener y expandir la infraestructura.
+
+## Secciones y Recursos Oficiales
+
+- [Inicio]({{ site.BaseURL }}): Presentación general del proyecto
+- [Acerca]({{ "acerca/" | absURL }}): Misión, visión, principios de replicabilidad, gobernanza, modelo operativo y equipo impulsor
+- [Colabora]({{ "colabora/" | absURL }}): Áreas abiertas de colaboración y guía para sumarse al equipo
+- [Blog y Noticias]({{ "posts/" | absURL }}): Artículos técnicos de ingeniería y anuncios oficiales
+- [Cuentas y Agradecimientos]({{ "cuentas/" | absURL }}): Transparencia financiera y patrocinadores fundadores
+- [Contacto]({{ "contacto/" | absURL }}): Canales oficiales en Telegram, WhatsApp y correo electrónico
+- [Portal de Documentación](https://docs.mx-os.mx/): Documentación técnica y organizativa completa
+- [Manual de Replicación e Ingeniería](https://docs.mx-os.mx/es-MX/replicacion/replicaci%C3%B3n/): Guía paso a paso para replicar la infraestructura
+- [Código Fuente en Forgejo](https://git.mx-os.mx/MxOS): Repositorios oficiales de paquetes, Ansible e infraestructura
+- [Red de Espejos sobre IPFS](https://mirrors.mx-os.mx/): Distribución descentralizada de paquetes e imágenes
+
+## Publicaciones (Blog y Noticias)
+
+{{ range (where site.RegularPages "Section" "posts").ByDate.Reverse }}- [{{ .Title | plainify }}]({{ .Permalink }}) [{{ .Params.category | default "Blog" }} — {{ .Date.Format "2006-01-02" }}]: {{ with .Description }}{{ . | plainify }}{{ else }}{{ .Summary | plainify | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace | truncate 160 }}{{ end }}
+{{ end -}}

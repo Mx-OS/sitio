@@ -1,0 +1,33 @@
+{{ $recent := first 3 (where site.RegularPages "Section" "posts").ByDate.Reverse }}
+{{ if $recent }}
+  <div class="recent-posts-grid">
+    {{ range $recent }}
+      <article class="recent-post-card">
+        <div class="post-meta">
+          {{- with .Params.category -}}
+            <a href="{{ (urlize (printf "categories/%s/" .)) | relLangURL }}" class="post-badge badge-{{ . | urlize }}">{{ . }}</a>
+          {{- end -}}
+          {{- if .Date -}}
+            <time class="post-date">{{ partial "post-date" . }}</time>
+          {{- end -}}
+        </div>
+        <h3>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h3>
+        <p>
+          {{- if .Description -}}
+            {{ .Description | plainify }}
+          {{- else -}}
+            {{ .Summary | plainify | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace | truncate 140 }}
+          {{- end -}}
+        </p>
+        <a class="read-more" href="{{ .RelPermalink }}">
+          {{ $.Site.Params.ReadMore | default "Leer más" }} →
+        </a>
+      </article>
+    {{ end }}
+  </div>
+  <ul class="cta-buttons simple">
+    <li><a href="{{ "/posts/" | relLangURL }}">Ver Todas las Publicaciones</a></li>
+  </ul>
+{{ end }}

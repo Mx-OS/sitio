@@ -1,7 +1,7 @@
 default:
   image: docker.io/library/alpine:latest
   before_script:
-    - apk add -U --no-cache hugo py3-docutils py3-pygments
+    - apk add -U --no-cache hugo py3-docutils py3-pygments brotli gzip
 
 test:  # builds and tests your site on merge requests and other branches
   script:
@@ -12,6 +12,7 @@ test:  # builds and tests your site on merge requests and other branches
 pages:  # deploys the compiled site to GitLab Pages on the default branch
   script:
     - hugo
+    - find public -type f \( -name '*.html' -o -name '*.css' -o -name '*.js' -o -name '*.xml' -o -name '*.txt' -o -name '*.svg' -o -name '*.json' \) -exec gzip -f -k -9 {} \; -exec brotli -f -k -q 11 {} \;
   artifacts:
     paths:
       - public

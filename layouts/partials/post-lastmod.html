@@ -1,10 +1,6 @@
 {{- $date := .Lastmod -}}
-{{- with .Params.dateFormat -}}
-  {{- $date | time.Format . -}}
+{{- with .Params.dateFormat | default site.Params.dateFormat -}}
+  [{{- or $.Site.Params.updatedDatePrefix "Actualizado: " }} {{ $date | time.Format . -}}]
 {{- else -}}
-  {{- with .Site.Params.dateFormat -}}
-    [{{- or $.Site.Params.updatedDatePrefix "Updated: " }} {{ $date | time.Format . -}}]
-  {{- else -}}
-    [{{- or $.Site.Params.updatedDatePrefix "Updated: " }} {{ $date | time.Format "2006-01-02" -}}]
-  {{- end -}}
+  [{{- or $.Site.Params.updatedDatePrefix "Actualizado: " }} {{ $date | time.Format ":date_long" -}}]
 {{- end -}}

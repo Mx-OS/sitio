@@ -48,6 +48,13 @@ Fomentando un ecosistema nacional de colaboración técnica, investigación y se
 MxOS es ideal para el sector público, empresas, instituciones educativas y usuarios que buscan una alternativa GNU/Linux robusta,
 gratuita y adaptada a nuestro entorno.
 
+Últimas Publicaciones
+=====================
+
+.. raw:: html
+
+   {{< recent-posts >}}
+
 Únete al Proyecto
 =================
 En MxOS todas las manos cuentan, **sin importar tu edad**: buscamos tanto a **personas con experiencia** como a **quienes quieran

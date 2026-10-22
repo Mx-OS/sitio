@@ -1,0 +1,69 @@
+{{- /* Datos estructurados schema.org (JSON-LD) para buscadores y motores generativos */ -}}
+{{- $p := .page -}}
+{{- $org := dict
+  "@type" "Organization"
+  "@id" (print site.BaseURL "#organizacion")
+  "name" "Fundación MxOS, A.C. (en formación)"
+  "alternateName" "MxOS"
+  "url" site.BaseURL
+  "logo" (dict "@type" "ImageObject" "url" ("favicon.png" | absURL) "width" 500 "height" 500)
+  "description" site.Params.subtitle
+  "email" "contacto@mx-os.mx"
+  "areaServed" "MX"
+  "foundingLocation" (dict "@type" "Place" "name" "México")
+  "sameAs" (slice "https://git.mx-os.mx/MxOS" "https://gitlab.com/mxos" "https://github.com/Mx-OS" "https://t.me/mx_os_mx" "https://liberapay.com/MxOS" "https://docs.mx-os.mx/" "https://mirrors.mx-os.mx/")
+-}}
+{{- $site := dict
+  "@type" "WebSite"
+  "@id" (print site.BaseURL "#sitio")
+  "url" site.BaseURL
+  "name" site.Title
+  "inLanguage" "es-MX"
+  "publisher" (dict "@id" (print site.BaseURL "#organizacion"))
+-}}
+{{- $graph := slice $org $site -}}
+
+{{- if $p.IsHome -}}
+  {{- $software := dict
+    "@type" "SoftwareApplication"
+    "name" "MxOS"
+    "applicationCategory" "OperatingSystem"
+    "operatingSystem" "GNU/Linux"
+    "license" "https://www.gnu.org/licenses/gpl-3.0.html"
+    "isAccessibleForFree" true
+    "offers" (dict "@type" "Offer" "price" "0" "priceCurrency" "MXN")
+    "description" "Distribución GNU/Linux segura, abierta, 100% replicable y 100% documentada para la soberanía tecnológica de México, basada en CentOS Stream 10."
+    "author" (dict "@id" (print site.BaseURL "#organizacion"))
+  -}}
+  {{- $graph = $graph | append $software -}}
+{{- else -}}
+  {{- $crumbs := slice (dict "@type" "ListItem" "position" 1 "name" "Inicio" "item" site.BaseURL) -}}
+  {{- with $p.Parent -}}
+    {{- if not .IsHome -}}
+      {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 2 "name" (.Title | plainify) "item" .Permalink) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" (add (len $crumbs) 1) "name" ($p.Title | plainify) "item" $p.Permalink) -}}
+  {{- $graph = $graph | append (dict "@type" "BreadcrumbList" "itemListElement" $crumbs) -}}
+
+  {{- if and $p.IsPage (eq $p.Section "posts") -}}
+    {{- $author := dict "@id" (print site.BaseURL "#organizacion") -}}
+    {{- with $p.Params.author }}{{ $author = dict "@type" "Person" "name" . }}{{ end -}}
+    {{- $articleType := cond (eq ($p.Params.category | default "Blog") "Noticia") "NewsArticle" "BlogPosting" -}}
+    {{- $graph = $graph | append (dict
+      "@type" $articleType
+      "headline" ($p.Title | plainify)
+      "description" .description
+      "image" (slice .image)
+      "datePublished" ($p.Date.Format "2006-01-02T15:04:05Z07:00")
+      "dateModified" ($p.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+      "author" $author
+      "publisher" (dict "@id" (print site.BaseURL "#organizacion"))
+      "mainEntityOfPage" $p.Permalink
+      "inLanguage" "es-MX"
+      "wordCount" $p.WordCount
+      "keywords" (delimit ($p.Params.tags | default slice) ", ")
+    ) -}}
+  {{- end -}}
+{{- end -}}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" $graph | jsonify | safeJS }}</script>
